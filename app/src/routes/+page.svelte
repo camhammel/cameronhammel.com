@@ -1,21 +1,20 @@
 <script lang="ts">
-	import { useQuery } from '@sanity/svelte-loader';
-	import Card from '../components/Card.svelte';
-	import Welcome from '../components/Welcome.svelte';
-	import type { PageData } from './$types';
+	import ProjectTitle from '../components/ProjectTitle.svelte';
 
-	export let data: PageData;
-	const q = useQuery(data);
-
-	$: ({ data: posts } = $q);
+	export let data;
 </script>
 
-<section>
-	{#if posts.length}
-		{#each posts as post}
-			<Card {post} />
-		{/each}
+<div class="min-h-full bg-gradient-to-b from-white to-blue-400 px-8">
+	{#if data.projects?.length}
+		<h2 class="h-[10vh]">Experience</h2>
+		<ul class="block">
+			{#each data.projects as project}
+				<li>
+					<ProjectTitle {project} />
+				</li>
+			{/each}
+		</ul>
 	{:else}
-		<Welcome />
+		<p>No projects found.</p>
 	{/if}
-</section>
+</div>

@@ -1,0 +1,49 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .project-title-a {
+        view-transition-name: project-title;
+    }
+}
+
+h1 {
+    font-family: Flamenco;
+    text-transform: uppercase;
+    @apply tracking-wider;
+}
+
+h2 {
+    font-family: "Space Grotesk";
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 50%;
+    margin-bottom: 24px;
+    @apply tracking-[0.5em] text-primary;
+}
+
+h3 {
+    font-family: "Space Grotesk";
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    -webkit-text-stroke: 2px #024CA4;
+    /* text-shadow:
+        3px 3px 0 #024CA4,
+        -1px -1px #024CA4,  
+        1px -1px 0 #024CA4,
+        -1px 1px 0 #024CA4,
+        1px 1px 0 #024CA4; */
+
+    @apply tracking-wider;
+}
+
+h4 {
+    font-family: "Space Mono";
+    font-size: 24px;
+    font-weight: bold;
+}
