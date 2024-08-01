@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PortableText } from '@portabletext/svelte';
+	import { DefaultListItem, PortableText } from '@portabletext/svelte';
 	import { urlFor } from '$lib//sanity/client';
 	import { fade } from 'svelte/transition';
 	import type { Section } from '$lib/types/project';
@@ -27,7 +27,10 @@
 			</div>
 			<div class="sm:items-start justify-center flex flex-1 flex-col sm:text-left text-center">
 				<div class="max-w-[55%] mx-auto sm:mx-0">
-					<PortableText value={section.content} components={{}} />
+					<PortableText
+						value={section.content}
+						components={{ listItem: { normal: DefaultListItem } }}
+					/>
 				</div>
 			</div>
 		</section>

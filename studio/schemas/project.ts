@@ -32,48 +32,9 @@ export default defineType({
                 title: 'Light Colour'
               }),
               defineField({
-                name: 'main',
+                name: 'lighter',
                 type: 'color',
-                title: 'Main Colour'
-              }),
-              defineField({
-                name: 'dark',
-                type: 'color',
-                title: 'Dark Colour'
-              }),
-            ]
-          }),
-          defineField({
-            name: 'secondary',
-            title: 'Secondary Colours',
-            type: 'document',
-            fields: [
-              defineField({
-                name: 'light',
-                type: 'color',
-                title: 'Light Colour'
-              }),
-              defineField({
-                name: 'main',
-                type: 'color',
-                title: 'Main Colour'
-              }),
-              defineField({
-                name: 'dark',
-                type: 'color',
-                title: 'Dark Colour'
-              }),
-            ]
-          }),
-          defineField({
-            name: 'tertiary',
-            title: 'Tertiary Colours',
-            type: 'document',
-            fields: [
-              defineField({
-                name: 'light',
-                type: 'color',
-                title: 'Light Colour'
+                title: 'Lighter Colour'
               }),
               defineField({
                 name: 'main',
@@ -164,7 +125,18 @@ export default defineType({
             fields: [
               defineField({
                 name: 'quote',
-                type: 'text',
+                type: 'array',
+                of: [
+                  defineArrayMember({
+                    type: 'block',
+                    name: 'Quote Item',
+                    marks: {
+                      decorators: [
+                        { title: 'Highlight', value: 'highlight', icon: () => 'H' }
+                      ]
+                    }
+                  }),
+                ],
                 title: 'Quote'
               }),
               defineField({

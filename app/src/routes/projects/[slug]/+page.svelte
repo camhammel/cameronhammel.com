@@ -18,7 +18,7 @@
 
 <div
 	style="--color-primary: {project?.colours.primary.main.hex}; --color-primary-light: {project
-		?.colours.primary.light.hex};"
+		?.colours.primary.light.hex}; --color-primary-lighter: {project?.colours.primary.lighter.hex};"
 >
 	{#if project}
 		<ProjectTitle {project} />

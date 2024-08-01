@@ -2,7 +2,7 @@ import type { SanityAsset } from "@sanity/image-url/lib/types/types";
 import type { InputValue } from '@portabletext/svelte';
 
 export type Quote = {
-    quote: string;
+    quote: InputValue;
     author: string;
     _key: string;
 }
@@ -16,6 +16,7 @@ export type Section = {
 type ProjectColor = {
     main: { hex: string };
     light: { hex: string };
+    lighter: { hex: string };
     dark: { hex: string };
 }
 
@@ -30,7 +31,5 @@ export type Project = {
     quotes?: Quote[];
     colours: {
         primary: ProjectColor;
-        secondary?: ProjectColor;
-        tertiary?: ProjectColor;
     }
 }

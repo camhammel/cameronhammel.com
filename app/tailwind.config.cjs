@@ -6,7 +6,8 @@ const config = {
     extend: {
       colors: {
         primary: 'var(--color-primary)',
-        'primary-light': 'var(--color-primary-light)'
+        'primary-light': 'var(--color-primary-light)',
+        'primary-lighter': 'var(--color-primary-lighter)',
       }
     },
   },
