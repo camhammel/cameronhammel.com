@@ -21,7 +21,7 @@
 				<img
 					class="rounded-md max-w-[55%]"
 					transition:fade={{ delay: 200 }}
-					src={urlFor(section.image).url()}
+					src={urlFor(section.image)?.url()}
 					alt="Project Section"
 				/>
 			</div>
@@ -29,7 +29,7 @@
 				<div class="max-w-[55%] mx-auto sm:mx-0">
 					<PortableText
 						value={section.content}
-						components={{ listItem: { normal: DefaultListItem } }}
+						components={{ listItem: { normal: DefaultListItem, bullet: DefaultListItem } }}
 					/>
 				</div>
 			</div>

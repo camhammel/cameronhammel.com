@@ -14,11 +14,17 @@
 
 	export let data;
 	$: ({ project } = data);
+	$: colours = project?.colours?.primary || {
+		main: { hex: '#000' },
+		light: { hex: '#000' },
+		lighter: { hex: '#000' },
+		dark: { hex: '#000' }
+	};
 </script>
 
 <div
-	style="--color-primary: {project?.colours.primary.main.hex}; --color-primary-light: {project
-		?.colours.primary.light.hex}; --color-primary-lighter: {project?.colours.primary.lighter.hex};"
+	style="--color-primary: {colours.main.hex}; --color-primary-light: {colours.light
+		.hex}; --color-primary-lighter: {colours.lighter.hex};"
 >
 	{#if project}
 		<ProjectTitle {project} />
@@ -27,7 +33,7 @@
 				<div class="mx-4">
 					<img
 						transition:fade={{ delay: 200 }}
-						src={urlFor(project.hero_banner).url()}
+						src={urlFor(project.hero_banner)?.url()}
 						class="rounded-lg"
 						alt="Hero Banner"
 					/>
@@ -39,19 +45,21 @@
 				{/if}
 				<!-- <p>{project.summary}</p> -->
 				<section class="mt-12">
-					{#if project.sections?.length}
-						{#each project.sections as section}
-							<ProjectSection {section} />
-						{/each}
-					{/if}
-				</section>
-				<section class="my-12">
 					{#if project.quotes?.length}
-						<div class="carousel carousel-center rounded-box gap-8 justify-center">
+						<div
+							class="carousel carousel-center rounded-box gap-8 justify-center flex-wrap sm:flex-nowrap"
+						>
 							{#each project.quotes as quote}
 								<ProjectQuote {quote} {project} />
 							{/each}
 						</div>
+					{/if}
+				</section>
+				<section class="my-12">
+					{#if project.sections?.length}
+						{#each project.sections as section}
+							<ProjectSection {section} />
+						{/each}
 					{/if}
 				</section>
 			</div>

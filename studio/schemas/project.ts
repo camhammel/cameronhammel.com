@@ -87,7 +87,7 @@ export default defineType({
               defineField({
                 name: 'image',
                 type: 'image',
-                title: 'Image'
+                title: 'Image',
               }),
               defineField({
                 type: 'string',

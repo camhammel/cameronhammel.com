@@ -9,8 +9,8 @@ export type Quote = {
 
 export type Section = {
     content: InputValue;
-    image: SanityAsset;
-    image_placement: 'left' | 'center' | 'right';
+    image?: SanityAsset;
+    image_placement?: 'left' | 'center' | 'right';
 }
 
 type ProjectColor = {
