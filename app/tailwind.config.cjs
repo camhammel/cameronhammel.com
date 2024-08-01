@@ -5,7 +5,8 @@ const config = {
   theme: {
     extend: {
       colors: {
-        primary: '#024CA4'
+        primary: 'var(--color-primary)',
+        'primary-light': 'var(--color-primary-light)'
       }
     },
   },
@@ -15,7 +16,7 @@ const config = {
   ],
 
   daisyui: {
-    themes: ["light", "dark"],
+    themes: ["light"],
   },
 };
 

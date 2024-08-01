@@ -4,6 +4,7 @@ import type { InputValue } from '@portabletext/svelte';
 export type Quote = {
     quote: string;
     author: string;
+    _key: string;
 }
 
 export type Section = {
@@ -14,8 +15,8 @@ export type Section = {
 
 type ProjectColor = {
     main: { hex: string };
-    light?: { hex: string };
-    dark?: { hex: string };
+    light: { hex: string };
+    dark: { hex: string };
 }
 
 export type Project = {

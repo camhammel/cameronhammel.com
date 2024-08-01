@@ -16,38 +16,45 @@
 	$: ({ project } = data);
 </script>
 
-<div>
+<div
+	style="--color-primary: {project?.colours.primary.main.hex}; --color-primary-light: {project
+		?.colours.primary.light.hex};"
+>
 	{#if project}
 		<ProjectTitle {project} />
-		{#if project.hero_banner && ready}
-			<div class="mx-4">
-				<img
-					transition:fade={{ delay: 200 }}
-					src={urlFor(project.hero_banner).url()}
-					class="rounded-lg"
-					alt="Hero Banner"
-				/>
-			</div>
-		{/if}
-		<div class="my-4 mx-8 flex-col flex gap-4">
-			{#if project.tech_stack?.length}
-				<ProjectTechStack {project} />
+		<div class="max-w-screen-2xl mx-auto">
+			{#if project.hero_banner && ready}
+				<div class="mx-4">
+					<img
+						transition:fade={{ delay: 200 }}
+						src={urlFor(project.hero_banner).url()}
+						class="rounded-lg"
+						alt="Hero Banner"
+					/>
+				</div>
 			{/if}
-			<p>{project.summary}</p>
-			<section class="mt-6">
-				{#if project.sections?.length}
-					{#each project.sections as section}
-						<ProjectSection {section} />
-					{/each}
+			<div class="my-4 mx-8 flex-col flex gap-4">
+				{#if project.tech_stack?.length}
+					<ProjectTechStack {project} />
 				{/if}
-			</section>
-			<section class="mt-6">
-				{#if project.quotes?.length}
-					{#each project.quotes as quote}
-						<ProjectQuote {quote} />
-					{/each}
-				{/if}
-			</section>
+				<!-- <p>{project.summary}</p> -->
+				<section class="mt-12">
+					{#if project.sections?.length}
+						{#each project.sections as section}
+							<ProjectSection {section} />
+						{/each}
+					{/if}
+				</section>
+				<section class="my-12">
+					{#if project.quotes?.length}
+						<div class="carousel carousel-center rounded-box gap-8 justify-center">
+							{#each project.quotes as quote}
+								<ProjectQuote {quote} {project} />
+							{/each}
+						</div>
+					{/if}
+				</section>
+			</div>
 		</div>
 	{/if}
 </div>
