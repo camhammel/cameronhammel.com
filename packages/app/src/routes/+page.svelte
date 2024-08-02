@@ -1,7 +1,6 @@
 <script lang="ts">
 	import ProjectTitle from '../components/ProjectTitle.svelte';
 
-	export const prerender = true;
 	export let data;
 </script>
 
