@@ -58,6 +58,9 @@ importers:
       '@sveltejs/adapter-auto':
         specifier: ^3.2.2
         version: 3.2.2(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))
+      '@sveltejs/adapter-static':
+        specifier: ^3.0.2
+        version: 3.0.2(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))
       '@sveltejs/kit':
         specifier: ^2.5.18
         version: 2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8))
@@ -1676,6 +1679,11 @@ packages:
 
   '@sveltejs/adapter-auto@3.2.2':
     resolution: {integrity: sha512-Mso5xPCA8zgcKrv+QioVlqMZkyUQ5MjDJiEPuG/Z7cV/5tmwV7LmcVWk5tZ+H0NCOV1x12AsoSpt/CwFwuVXMA==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
+
+  '@sveltejs/adapter-static@3.0.2':
+    resolution: {integrity: sha512-/EBFydZDwfwFfFEuF1vzUseBoRziwKP7AoHAwv+Ot3M084sE/HTVBHf9mCmXfdM9ijprY5YEugZjleflncX5fQ==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
@@ -6823,7 +6831,7 @@ snapshots:
     dependencies:
       '@sanity/client': 6.21.1(debug@4.3.5)
       '@sanity/icons': 3.3.1(react@18.3.1)
-      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1)
+      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1(debug@4.3.5))
       '@sanity/ui': 2.8.8(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/uuid': 3.0.2
       '@types/lodash.isequal': 4.5.8
@@ -6842,7 +6850,7 @@ snapshots:
       - react-is
       - styled-components
 
-  '@sanity/preview-url-secret@1.6.18(@sanity/client@6.21.1)':
+  '@sanity/preview-url-secret@1.6.18(@sanity/client@6.21.1(debug@4.3.5))':
     dependencies:
       '@sanity/client': 6.21.1(debug@4.3.5)
       '@sanity/uuid': 3.0.2
@@ -6964,7 +6972,7 @@ snapshots:
 
   '@sanity/visual-editing@2.1.6(@sanity/client@6.21.1)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@4.2.18)':
     dependencies:
-      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1)
+      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1(debug@4.3.5))
       '@vercel/stega': 0.1.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -7035,6 +7043,10 @@ snapshots:
     dependencies:
       '@sveltejs/kit': 2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8))
       import-meta-resolve: 4.1.0
+
+  '@sveltejs/adapter-static@3.0.2(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))':
+    dependencies:
+      '@sveltejs/kit': 2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8))
 
   '@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8))':
     dependencies:

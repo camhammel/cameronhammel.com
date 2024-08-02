@@ -23,6 +23,7 @@
 		"@portabletext/types": "^2.0.13",
 		"@sanity/types": "^3.50.0",
 		"@sveltejs/adapter-auto": "^3.2.2",
+		"@sveltejs/adapter-static": "^3.0.2",
 		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
