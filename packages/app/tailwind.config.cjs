@@ -8,6 +8,7 @@ const config = {
         primary: 'var(--color-primary)',
         'primary-light': 'var(--color-primary-light)',
         'primary-lighter': 'var(--color-primary-lighter)',
+        'primary-dark': 'var(--color-primary-dark)',
       }
     },
   },

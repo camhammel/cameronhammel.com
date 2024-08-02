@@ -14,7 +14,7 @@
 
 	export let data;
 	$: ({ project } = data);
-	$: colours = project?.colours?.primary || {
+	$: colourset = project?.colourset || {
 		main: { hex: '#000' },
 		light: { hex: '#000' },
 		lighter: { hex: '#000' },
@@ -23,8 +23,9 @@
 </script>
 
 <div
-	style="--color-primary: {colours.main.hex}; --color-primary-light: {colours.light
-		.hex}; --color-primary-lighter: {colours.lighter.hex};"
+	style="--color-primary: {colourset.main.hex}; --color-primary-light: {colourset.light
+		.hex}; --color-primary-lighter: {colourset.lighter.hex}; --color-primary-dark: {colourset.dark
+		.hex};"
 >
 	{#if project}
 		<ProjectTitle {project} />
@@ -50,7 +51,7 @@
 							class="carousel carousel-center rounded-box gap-8 justify-center flex-wrap sm:flex-nowrap"
 						>
 							{#each project.quotes as quote}
-								<ProjectQuote {quote} {project} />
+								<ProjectQuote {quote} />
 							{/each}
 						</div>
 					{/if}

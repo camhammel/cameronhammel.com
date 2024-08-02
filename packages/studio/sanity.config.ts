@@ -1,11 +1,11 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import { defineConfig } from 'sanity'
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
+import {structureTool} from 'sanity/structure'
 
-import {schemaTypes} from './schemas'
+import types from './schemas'
 
-export default defineConfig({
+const config = defineConfig({
   name: 'default',
   title: 'CameronHammel.com',
 
@@ -15,6 +15,8 @@ export default defineConfig({
   plugins: [structureTool(), colorInput(), visionTool()],
 
   schema: {
-    types: schemaTypes,
+    types,
   },
-})
+});
+
+export default config;

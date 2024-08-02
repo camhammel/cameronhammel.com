@@ -1,14 +1,13 @@
 <script lang="ts">
-	import type { Project, Quote } from '$lib/types/project';
+	import type { Quote } from '$lib/types/project';
 	import { PortableText } from '@portabletext/svelte';
 	import QuoteIcon from '../svg/quote.svelte';
 	import CustomMark from './blocks/CustomMark.svelte';
 
-	export let project: Project;
 	export let quote: Quote;
 </script>
 
-<div class="carousel-item sm:w-2/5 w-full" id="quote-{quote._key}">
+<div class="carousel-item sm:w-2/5 w-full" id="quote-{quote._id}">
 	<div
 		class="flex flex-col p-8 gap-4 mt-6 rounded-md bg-gradient-to-b from-primary-light to-primary-lighter"
 	>
@@ -20,19 +19,10 @@
 				<PortableText value={quote.quote} components={{ marks: { highlight: CustomMark } }} />
 			</p>
 			<div class="border-t-2 border-neutral-700 pt-4 w-full flex">
-				<caption class="text-left font-semibold" style:color={project.colours.primary?.main?.hex}>
+				<caption class="text-left font-semibold text-primary">
 					{quote.author}
 				</caption>
 			</div>
 		{/if}
 	</div>
 </div>
-
-<!-- <style lang="scss">
-	.quote-content {
-		mark {
-			background-color: var(--color-primary-light);
-			color: var(--color-primary);
-		}
-	}
-</style> -->

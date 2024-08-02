@@ -9,7 +9,6 @@
 	}
 
 	const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
-	const mainColour = isActivePage ? project.colours?.primary?.main?.hex : '';
 </script>
 
 <div>

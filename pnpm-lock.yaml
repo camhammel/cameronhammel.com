@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      app:
+        specifier: workspace:*
+        version: link:packages/app
+      studio:
+        specifier: workspace:*
+        version: link:packages/studio
     devDependencies:
       prettier:
         specifier: 3.3.3
@@ -15,20 +22,20 @@ importers:
         specifier: 2.5.1
         version: 2.5.1(prettier@3.3.3)
 
-  app:
+  packages/app:
     dependencies:
       '@sanity/client':
         specifier: ^6.15.4
-        version: 6.21.0
+        version: 6.21.1(debug@4.3.5)
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.0.2
       '@sanity/svelte-loader':
         specifier: ^1.11.1
-        version: 1.11.33(@sanity/client@6.21.0)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)
+        version: 1.11.33(@sanity/client@6.21.1)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)
       '@sanity/visual-editing':
         specifier: ^2.0.0
-        version: 2.1.6(@sanity/client@6.21.0)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@4.2.18)
+        version: 2.1.6(@sanity/client@6.21.1)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@4.2.18)
       daisyui:
         specifier: ^4.12.10
         version: 4.12.10(postcss@8.4.39)
@@ -37,7 +44,7 @@ importers:
         version: 1.11.12
       groq:
         specifier: ^3.33.0
-        version: 3.50.0
+        version: 3.52.4
     devDependencies:
       '@portabletext/svelte':
         specifier: ^2.1.11
@@ -47,7 +54,7 @@ importers:
         version: 2.0.13
       '@sanity/types':
         specifier: ^3.50.0
-        version: 3.50.0
+        version: 3.52.4(debug@4.3.5)
       '@sveltejs/adapter-auto':
         specifier: ^3.2.2
         version: 3.2.2(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))
@@ -109,8 +116,11 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3(@types/node@18.19.39)(sass@1.77.8)
 
-  studio:
+  packages/studio:
     dependencies:
+      '@sanity-typed/types':
+        specifier: ^6.3.6
+        version: 6.3.6(@portabletext/types@2.0.13)(sanity@3.52.4(@types/node@18.19.39)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(typescript@5.5.3)
       '@sanity/color-input':
         specifier: ^3.1.1
         version: 3.1.1(@sanity/ui@2.8.8(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.52.4(@types/node@18.19.39)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -1281,6 +1291,12 @@ packages:
   '@polka/url@1.0.0-next.25':
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
 
+  '@portabletext-typed/types@1.0.2':
+    resolution: {integrity: sha512-meK8fLu6/24j3N6QDuaJJngd0W9r8WFy0mRVjDR0RSiVASzcNxad67JksN11sFLCV+yvpsXPhN/fL6HNmQp9og==}
+    peerDependencies:
+      '@portabletext/types': ^2.0.2
+      typescript: 5.1.3 || 5.1.5 || 5.1.6 || 5.2.2
+
   '@portabletext/editor@1.0.9':
     resolution: {integrity: sha512-DoOaarEiD+nmpFijkUgxl20+DDiPA8WVp1QK4j1lckX/wFcBOU9OUmiVD9bAOEv/iaLCrbvds8xTJoqaS72N4w==}
     engines: {node: '>=18'}
@@ -1409,6 +1425,12 @@ packages:
   '@rushstack/eslint-patch@1.10.3':
     resolution: {integrity: sha512-qC/xYId4NMebE6w/V33Fh9gWxLgURiNYgVNObbJl2LZv0GUUItCcCqC5axQSwRaAgaxl2mELq1rMzlswaQ0Zxg==}
 
+  '@sanity-typed/types@6.3.6':
+    resolution: {integrity: sha512-yp3dODhm8VnLwprzuh2kW7JaSCNf2NN9OwXaqBsKnNh7IGxzCfs2lnvae+0TCsUejCxf80aFPOMwY0IGkuOhOw==}
+    peerDependencies:
+      sanity: ^3.12.0
+      typescript: 5.1.3 || 5.1.5 || 5.1.6 || 5.2.2
+
   '@sanity/asset-utils@1.3.0':
     resolution: {integrity: sha512-uyIOtGA4Duf+68I3BSbYHY5P+WGftn3QtNJD2Pn7h9WPGYsSrWViIPebE9yRN8N0NHhYj+hDQXaMpVdjG7r+zA==}
     engines: {node: '>=10'}
@@ -1423,10 +1445,6 @@ packages:
     resolution: {integrity: sha512-oXoH8uRf3WAPQeOX4NVLk3AgL6IWFZ2tZwutXwpvxsA/t5X74ewy5O5/tIWLL4TKstoCLY2jwnYzSOC+u35y3Q==}
     engines: {node: '>=18'}
     hasBin: true
-
-  '@sanity/client@6.21.0':
-    resolution: {integrity: sha512-kiGvRvfFofD//pBV5Vmy3zP/B9lrOJE5U4Nu3RKDmmDNpwOC5aftiA+eVCsUEAyfEiIcV857TJ71Tqt9eaOWIw==}
-    engines: {node: '>=14.18'}
 
   '@sanity/client@6.21.1':
     resolution: {integrity: sha512-j6OnE6Ytso0c5imjuIviglJDKXgd3jCVyPmZO+GpqWDtPWSXPucqH/mFyHcs5+kWyfAfkY5G1R2+Er0L7Sb0hA==}
@@ -1565,9 +1583,6 @@ packages:
 
   '@sanity/types@3.37.2':
     resolution: {integrity: sha512-1EfKkNlJ86wIDtc7oFHb79JI8lKDOxKDYrkmwhvuHgJY83GpSABc1kFdbwAtWZfrWVWyqVXUv/KlNwA3b99y/g==}
-
-  '@sanity/types@3.50.0':
-    resolution: {integrity: sha512-umRzKcI8tdQNC2RiK7tGfmhB5WKsMp4xTh/0B4g3aHTnyF6XzBOm+jhAsCT8qu1CTC+DS2e3WA8o++6ev7/uBA==}
 
   '@sanity/types@3.52.4':
     resolution: {integrity: sha512-OUC+OuJo3G2zAIIf8znLoGMSe0U0cX/KeSBA+yNVkutBxOaRpaJbhFhiX+4zWfGUOMPwaMd8+4pATgRd2kD8jQ==}
@@ -3057,10 +3072,6 @@ packages:
   groq-js@1.12.0:
     resolution: {integrity: sha512-XxMg2qX3iX+WlhCkj4FmrtDaQKRot9RyphJ0UsmxI/l2aMOdvjG7pqF003yyXppjoE0Vk1ERCDCUYRvC3w/A2Q==}
     engines: {node: '>= 14'}
-
-  groq@3.50.0:
-    resolution: {integrity: sha512-nnlnjqmGbi5G9dSWmgObVMBh/3nZgA1jhj8lHuMzGfpXkQuI1gR+X4MwyvOq96PSk50XQX1lCm0N0zRcHbiskg==}
-    engines: {node: '>=18'}
 
   groq@3.52.4:
     resolution: {integrity: sha512-EOwlT3oyp7kbBqfuPLedAvQUk4XLGGvjDzc3fBJjC2yjwQPivEbaZRslIU7WLUThy97GEpFWS7z1HKFGZTCd1A==}
@@ -4832,6 +4843,14 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
 
+  type-fest@4.10.1:
+    resolution: {integrity: sha512-7ZnJYTp6uc04uYRISWtiX3DSKB/fxNQT0B5o1OUeCqiQiwF+JC9+rJiZIDrPrNCLLuTqyQmh4VdQqh/ZOkv9MQ==}
+    engines: {node: '>=16'}
+
+  type-fest@4.9.0:
+    resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
+    engines: {node: '>=16'}
+
   typed-array-buffer@1.0.2:
     resolution: {integrity: sha512-gEymJYKZtKXzzBzM4jqa9w6Q1Jjm7x2d+sh19AdsD4wqnMPDYyvwpsIc2Q/835kHuo3BEQ7CjelGhfTsoBb2MQ==}
     engines: {node: '>= 0.4'}
@@ -6445,6 +6464,12 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
+  '@portabletext-typed/types@1.0.2(@portabletext/types@2.0.13)(typescript@5.5.3)':
+    dependencies:
+      '@portabletext/types': 2.0.13
+      type-fest: 4.9.0
+      typescript: 5.5.3
+
   '@portabletext/editor@1.0.9(@sanity/block-tools@3.52.4(debug@4.3.5))(@sanity/schema@3.52.4(debug@4.3.5))(@sanity/types@3.52.4(debug@4.3.5))(@sanity/util@3.52.4(debug@4.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@portabletext/patches': 1.0.2
@@ -6551,6 +6576,15 @@ snapshots:
 
   '@rushstack/eslint-patch@1.10.3': {}
 
+  '@sanity-typed/types@6.3.6(@portabletext/types@2.0.13)(sanity@3.52.4(@types/node@18.19.39)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(typescript@5.5.3)':
+    dependencies:
+      '@portabletext-typed/types': 1.0.2(@portabletext/types@2.0.13)(typescript@5.5.3)
+      sanity: 3.52.4(@types/node@18.19.39)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      type-fest: 4.10.1
+      typescript: 5.5.3
+    transitivePeerDependencies:
+      - '@portabletext/types'
+
   '@sanity/asset-utils@1.3.0': {}
 
   '@sanity/bifur-client@0.4.1':
@@ -6590,14 +6624,6 @@ snapshots:
     transitivePeerDependencies:
       - react
       - supports-color
-
-  '@sanity/client@6.21.0':
-    dependencies:
-      '@sanity/eventsource': 5.0.2
-      get-it: 8.6.3(debug@4.3.5)
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - debug
 
   '@sanity/client@6.21.1(debug@4.3.5)':
     dependencies:
@@ -6642,9 +6668,9 @@ snapshots:
 
   '@sanity/color@3.0.6': {}
 
-  '@sanity/core-loader@1.6.20(@sanity/client@6.21.0)':
+  '@sanity/core-loader@1.6.20(@sanity/client@6.21.1)':
     dependencies:
-      '@sanity/client': 6.21.0
+      '@sanity/client': 6.21.1(debug@4.3.5)
 
   '@sanity/diff-match-patch@3.1.1': {}
 
@@ -6797,7 +6823,7 @@ snapshots:
     dependencies:
       '@sanity/client': 6.21.1(debug@4.3.5)
       '@sanity/icons': 3.3.1(react@18.3.1)
-      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1(debug@4.3.5))
+      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1)
       '@sanity/ui': 2.8.8(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/uuid': 3.0.2
       '@types/lodash.isequal': 4.5.8
@@ -6816,12 +6842,7 @@ snapshots:
       - react-is
       - styled-components
 
-  '@sanity/preview-url-secret@1.6.18(@sanity/client@6.21.0)':
-    dependencies:
-      '@sanity/client': 6.21.0
-      '@sanity/uuid': 3.0.2
-
-  '@sanity/preview-url-secret@1.6.18(@sanity/client@6.21.1(debug@4.3.5))':
+  '@sanity/preview-url-secret@1.6.18(@sanity/client@6.21.1)':
     dependencies:
       '@sanity/client': 6.21.1(debug@4.3.5)
       '@sanity/uuid': 3.0.2
@@ -6840,10 +6861,10 @@ snapshots:
       - debug
       - supports-color
 
-  '@sanity/svelte-loader@1.11.33(@sanity/client@6.21.0)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)':
+  '@sanity/svelte-loader@1.11.33(@sanity/client@6.21.1)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)':
     dependencies:
-      '@sanity/client': 6.21.0
-      '@sanity/core-loader': 1.6.20(@sanity/client@6.21.0)
+      '@sanity/client': 6.21.1(debug@4.3.5)
+      '@sanity/core-loader': 1.6.20(@sanity/client@6.21.1)
       '@sveltejs/kit': 2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8))
       fast-deep-equal: 3.1.3
       svelte: 4.2.18
@@ -6858,13 +6879,6 @@ snapshots:
   '@sanity/types@3.37.2(debug@4.3.5)':
     dependencies:
       '@sanity/client': 6.21.1(debug@4.3.5)
-      '@types/react': 18.3.3
-    transitivePeerDependencies:
-      - debug
-
-  '@sanity/types@3.50.0':
-    dependencies:
-      '@sanity/client': 6.21.0
       '@types/react': 18.3.3
     transitivePeerDependencies:
       - debug
@@ -6948,16 +6962,16 @@ snapshots:
       - react-dom
       - react-is
 
-  '@sanity/visual-editing@2.1.6(@sanity/client@6.21.0)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@4.2.18)':
+  '@sanity/visual-editing@2.1.6(@sanity/client@6.21.1)(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@4.2.18)':
     dependencies:
-      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.0)
+      '@sanity/preview-url-secret': 1.6.18(@sanity/client@6.21.1)
       '@vercel/stega': 0.1.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
       valibot: 0.31.1
     optionalDependencies:
-      '@sanity/client': 6.21.0
+      '@sanity/client': 6.21.1(debug@4.3.5)
       '@sveltejs/kit': 2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8)))(svelte@4.2.18)(vite@5.3.3(@types/node@18.19.39)(sass@1.77.8))
       svelte: 4.2.18
 
@@ -8778,8 +8792,6 @@ snapshots:
       debug: 4.3.5
     transitivePeerDependencies:
       - supports-color
-
-  groq@3.50.0: {}
 
   groq@3.52.4: {}
 
@@ -10722,6 +10734,10 @@ snapshots:
   type-fest@0.6.0: {}
 
   type-fest@0.8.1: {}
+
+  type-fest@4.10.1: {}
+
+  type-fest@4.9.0: {}
 
   typed-array-buffer@1.0.2:
     dependencies:
