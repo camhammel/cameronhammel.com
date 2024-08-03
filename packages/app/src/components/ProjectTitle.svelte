@@ -25,7 +25,7 @@
 				</span>
 				<span class="text-primary font-['Space_Mono'] text-4xl w-10 px-2 font-bold"> / </span>
 				<h3
-					class="group-hover:text-primary transition-colors duration-300"
+					class="group-hover:text-primary transition-colors duration-300 line-clamp-1"
 					class:text-primary={isActivePage}
 					class:is-active-page={isActivePage}
 				>
