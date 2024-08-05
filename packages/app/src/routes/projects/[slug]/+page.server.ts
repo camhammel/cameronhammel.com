@@ -10,6 +10,7 @@ export async function load({ params }: { params: { slug: string } }) {
         hero_banner,
         summary,
         start_date,
+		end_date,
         tech_stack[]->,
         sections[]->,
         quotes[]->,

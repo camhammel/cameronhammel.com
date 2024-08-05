@@ -1076,6 +1076,13 @@
         },
         "optional": false
       },
+      "end_date": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "tech_stack": {
         "type": "objectAttribute",
         "value": {

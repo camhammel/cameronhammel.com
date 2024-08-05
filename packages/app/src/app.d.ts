@@ -16,7 +16,11 @@ declare global {
 		finished: Promise<void>;
 		skipTransition: () => void;
 	}
-	
+
+	interface CSSStyleDeclaration {
+		viewTransitionName?: string;
+	}
+
 	interface Document {
 		startViewTransition(updateCallback: () => Promise<void>): ViewTransition;
 	}

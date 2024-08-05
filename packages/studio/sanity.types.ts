@@ -175,6 +175,7 @@ export type Project = {
   }
   summary: string
   start_date: string
+  end_date?: string
   tech_stack?: Array<{
     _ref: string
     _type: 'reference'
@@ -322,9 +323,9 @@ export type AllSanitySchemaTypes =
   | HsvaColor
   | HslaColor
 export declare const internalGroqTypeReferenceTo: unique symbol
-// Source: ../app/src/routes/+page.server.ts
+// Source: ../app/src/routes/(app)/+page.server.ts
 // Variable: allProjectQuery
-// Query: *[_type == "project"]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,        tech_stack->,        sections->,        quotes->    }
+// Query: *[_type == "project"]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,		end_date,        tech_stack->,        sections->,        quotes->    }
 export type AllProjectQueryResult = Array<{
   slug: string
   name: string
@@ -352,6 +353,7 @@ export type AllProjectQueryResult = Array<{
   } | null
   summary: string
   start_date: string
+  end_date: string | null
   tech_stack: Array<{
     _id: string
     _type: 'techstackitem'
@@ -424,16 +426,9 @@ export type AllProjectQueryResult = Array<{
     author?: string
   }> | null
 }>
-// Source: ../app/src/lib/sanity/queries.ts
-// Variable: postQuery
-// Query: *[_type == "post" && slug.current == $slug][0]
-export type PostQueryResult = null
-// Variable: postsQuery
-// Query: *[_type == "post" && defined(slug.current)] | order(_createdAt desc)
-export type PostsQueryResult = Array<never>
 // Source: ../app/src/routes/projects/[slug]/+page.server.ts
 // Variable: projectQuery
-// Query: *[_type == "project" && slug.current == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,        tech_stack->,        sections->,        quotes->,    }
+// Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,		end_date,        tech_stack[]->,        sections[]->,        quotes[]->,    }
 export type ProjectQueryResult = Array<{
   slug: string
   name: string
@@ -461,6 +456,7 @@ export type ProjectQueryResult = Array<{
   } | null
   summary: string
   start_date: string
+  end_date: string | null
   tech_stack: Array<{
     _id: string
     _type: 'techstackitem'

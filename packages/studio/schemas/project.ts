@@ -43,6 +43,11 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'end_date',
+      type: 'date',
+      title: 'End Date',
+    }),
+    defineField({
       name: 'tech_stack',
       type: 'array',
       title: 'Tech Stack',

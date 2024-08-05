@@ -13,7 +13,6 @@
 		"@sanity/client": "^6.15.4",
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/svelte-loader": "^1.11.1",
-		"@sanity/visual-editing": "^2.0.0",
 		"daisyui": "^4.12.10",
 		"dayjs": "^1.11.12",
 		"groq": "^3.33.0"

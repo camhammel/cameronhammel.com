@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 
 import type { AllProjectQueryResult, AllSanitySchemaTypes } from 'studio';
 import { client } from '$lib/sanity/client';
+
 import groq from 'groq';
 export async function load() {
 	const allProjectQuery = groq`*[_type == "project"]{
@@ -12,6 +13,7 @@ export async function load() {
         hero_banner,
         summary,
         start_date,
+		end_date,
         tech_stack->,
         sections->,
         quotes->

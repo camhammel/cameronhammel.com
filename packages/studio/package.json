@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
+    "predev": "pnpm dlx sanity schema extract --enforce-required-fields && pnpm dlx sanity typegen generate",
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",

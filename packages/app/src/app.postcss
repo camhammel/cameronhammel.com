@@ -4,8 +4,11 @@
 @tailwind utilities;
 
 @layer utilities {
-	.project-title-a {
+	.project-title {
 		view-transition-name: project-title;
+	}
+	.project-title-container {
+		view-transition-name: project-title-container;
 	}
 }
 
@@ -22,7 +25,7 @@
 h1 {
 	font-family: 'Space Grotesk';
 	text-transform: uppercase;
-	@apply tracking-widest;
+	@apply tracking-widest text-slate-700;
 }
 
 h2 {
@@ -30,25 +33,15 @@ h2 {
 	font-size: 48px;
 	font-weight: bold;
 	text-transform: uppercase;
-	opacity: 50%;
 	margin-bottom: 24px;
-	@apply tracking-[0.5em] text-primary;
+	@apply tracking-[0.5em] text-slate-500;
 }
 
 h3 {
 	font-family: 'Space Grotesk';
 	font-size: 48px;
-	font-weight: 600;
-	text-transform: uppercase;
+	font-weight: 400;
 	color: white;
-	-webkit-text-stroke: 2px #024ca4;
-	/* text-shadow:
-        3px 3px 0 #024CA4,
-        -1px -1px #024CA4,  
-        1px -1px 0 #024CA4,
-        -1px 1px 0 #024CA4,
-        1px 1px 0 #024CA4; */
-
 	@apply tracking-wider;
 }
 

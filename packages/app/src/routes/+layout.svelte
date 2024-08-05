@@ -14,15 +14,7 @@
 	});
 </script>
 
-<div class="w-full h-screen">
-	<div class="navbar items-center">
-		<div class="navbar-start"></div>
-		<h1 class="navbar-end py-8 px-4 header-logo text-2xl text-slate-600">
-			<a href="/"> CameronHammel.com </a>
-		</h1>
-	</div>
-	<div class="h-[calc(100vh-112px)]"><slot></slot></div>
-</div>
+<div><slot /></div>
 
 <style lang="scss">
 	@keyframes fade-in {
