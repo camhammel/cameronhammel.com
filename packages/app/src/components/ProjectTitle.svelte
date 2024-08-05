@@ -49,10 +49,10 @@
 					</div>
 				</div>
 			{:else}
-				<div class="min-h-[10vh] flex flex-col w-full items-center">
+				<div class="min-h-[10vh] flex flex-col w-full items-center justify-center">
 					<a
-						class="project-title-component projects-list-item group flex flex-row w-full items-center px-8 rounded-md duration-300 transition-colors"
-						style:background-color={project.colourset?.main?.hex}
+						class="py-2 project-title-component projects-list-item group flex flex-row w-full items-center px-8 rounded-badge duration-300 transition-all hover:shadow-md hover:-translate-y-2"
+						style:background-color={project.colourset?.main?.hex || 'black'}
 						href={`/projects/${project.slug}`}
 					>
 						<span class="text-white font-['Space_Mono'] text-lg w-10 px-2 break-words font-bold">
