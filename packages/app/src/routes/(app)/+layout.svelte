@@ -4,5 +4,5 @@
 			<a href="/"> CameronHammel.com </a>
 		</h1>
 	</div>
-	<div class="h-[calc(100vh-112px)]"><slot></slot></div>
+	<div class="h-[calc(100vh-124px)]"><slot></slot></div>
 </div>
