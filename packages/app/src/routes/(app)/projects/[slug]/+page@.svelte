@@ -47,12 +47,18 @@
 							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
 						</div>
 					{/if}
-					<div class="my-4 mx-8 flex-col flex gap-4">
+					<div class="my-4 mx-8 flex-col flex gap-8">
 						{#if project.tech_stack?.length}
 							<ProjectTechStack {project} />
 						{/if}
-						<!-- <p>{project.summary}</p> -->
-						<section class="mt-12">
+						<section>
+							{#if project.sections?.length}
+								{#each project.sections as section}
+									<ProjectSection {section} />
+								{/each}
+							{/if}
+						</section>
+						<section>
 							{#if project.quotes?.length}
 								<div
 									class="carousel carousel-center rounded-box gap-8 justify-center flex-wrap sm:flex-nowrap"
@@ -61,13 +67,6 @@
 										<ProjectQuote {quote} />
 									{/each}
 								</div>
-							{/if}
-						</section>
-						<section class="my-12">
-							{#if project.sections?.length}
-								{#each project.sections as section}
-									<ProjectSection {section} />
-								{/each}
 							{/if}
 						</section>
 					</div>
