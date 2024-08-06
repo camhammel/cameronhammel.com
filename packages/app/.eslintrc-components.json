@@ -1,0 +1,10 @@
+{
+    "globals": {
+        "ProjectQuote": true,
+        "ProjectSection": true,
+        "ProjectTechStack": true,
+        "ProjectTitle": true,
+        "CustomMark": true,
+        "SvelteSeo": true
+    }
+}

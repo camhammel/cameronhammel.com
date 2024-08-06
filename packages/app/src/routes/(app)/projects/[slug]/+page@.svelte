@@ -74,5 +74,13 @@
 				</div>
 			</div>
 		{/if}
+		<SvelteSeo
+			title={`${project.name} | Cameron Hammel`}
+			description="Cameron Hammel's personal website"
+			keywords={`Cameron Hammel, Cameron, Hammel, personal, website, portfolio, LinkedIn, GitHub, Resume, ${project.name}`}
+			openGraph={{
+				title: `${project.name} | Cameron Hammel`
+			}}
+		/>
 	{/if}
 </div>
