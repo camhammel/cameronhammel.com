@@ -9,4 +9,4 @@ Built on a starter, using [SvelteKit](https://kit.svelte.dev/) for the frontend 
 > It is configured as a monorepo using [pnpm workspaces](https://pnpm.io/workspaces)
 
 ## Check it out at:
-[cameronhammel.pages.dev](cameronhammel.pages.dev)
+[cameronhammel.pages.dev](https://cameronhammel.pages.dev)
