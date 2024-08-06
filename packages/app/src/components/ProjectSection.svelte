@@ -12,12 +12,23 @@
 			: section?.image_placement === 'right'
 				? 'flex flex-1 flex-col sm:flex-row-reverse items-center justify-between lg:gap-24 sm:gap-8 gap-4'
 				: 'flex flex-1 flex-col items-center gap-2';
+
+	let textContainerClass =
+		section?.image_placement === 'left'
+			? 'sm:items-start justify-center flex flex-1 flex-col sm:text-left text-center'
+			: section?.image_placement === 'right'
+				? 'sm:items-end justify-center flex flex-1 flex-col sm:text-right text-center'
+				: 'sm:items-center justify-center flex flex-1 flex-col text-center';
 </script>
 
 <div>
 	{#if section}
 		<section class={containerClass}>
-			<div class="flex flex-1 items-center sm:justify-end justify-center">
+			<div
+				class="flex flex-1 items-center justify-center"
+				class:sm:justify-end={section?.image_placement === 'left'}
+				class:sm:justify-start={section?.image_placement === 'right'}
+			>
 				<img
 					class="rounded-md max-w-[55%]"
 					transition:fade={{ delay: 200 }}
@@ -25,7 +36,7 @@
 					alt="Project Section"
 				/>
 			</div>
-			<div class="sm:items-start justify-center flex flex-1 flex-col sm:text-left text-center">
+			<div class={textContainerClass}>
 				<div class="max-w-[55%] mx-auto sm:mx-0">
 					<PortableText
 						value={section.content}
