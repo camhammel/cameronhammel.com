@@ -4,6 +4,7 @@
 	import { fly, slide } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
+	import Arrow from '../svg/arrow.svelte';
 
 	export let project: Project;
 	export let index = -1;
@@ -42,9 +43,9 @@
 				<div class="relative pt-8 pb-12 bg-primary">
 					<a
 						href="/"
-						class="absolute left-10 top-6 text-white text-7xl font-['Space_Mono'] font-bold"
+						class="absolute left-10 p-2 top-14 w-12 text-white hover:bg-primary-dark rounded-md transition-colors duration-300"
 					>
-						←
+						<Arrow />
 					</a>
 					<div class="min-h-[10vh] flex flex-col w-full items-center pb-12">
 						<div
