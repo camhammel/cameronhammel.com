@@ -29,9 +29,9 @@
 	{#if data.projects?.length}
 		<h2 class="h-[10vh]">Experience</h2>
 		<ul class="block">
-			{#each data.projects as project}
+			{#each data.projects as project, index}
 				<li>
-					<ProjectTitle {project} />
+					<ProjectTitle {project} {index} />
 				</li>
 			{/each}
 		</ul>

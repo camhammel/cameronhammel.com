@@ -2,12 +2,12 @@
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	import ProjectTitle from '../../../components/ProjectTitle.svelte';
-	import ProjectSection from '../../../components/ProjectSection.svelte';
-	import ProjectQuote from '../../../components/ProjectQuote.svelte';
+	import ProjectTitle from '../../../../components/ProjectTitle.svelte';
+	import ProjectSection from '../../../../components/ProjectSection.svelte';
+	import ProjectQuote from '../../../../components/ProjectQuote.svelte';
 
 	import { urlFor } from '$lib/sanity/client';
-	import ProjectTechStack from '../../../components/ProjectTechStack.svelte';
+	import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
 	import { cubicOut } from 'svelte/easing';
 
 	let ready = false;
@@ -38,10 +38,10 @@
 		<ProjectTitle {project} />
 		{#if ready}
 			<div
-				class="rounded-3xl bg-white pt-4 z-10 bottom-5 relative flex-col"
-				transition:fly={{ duration: 500, delay: 200, y: 100, easing: cubicOut }}
+				class="rounded-3xl bg-white pt-4 z-10 bottom-12 relative flex-col"
+				transition:fly={{ duration: 500, delay: 200, y: 100, easing: cubicOut, opacity: 1 }}
 			>
-				<div class="max-w-screen-2xl mx-auto" transition:fade={{ duration: 500 }}>
+				<div class="max-w-screen-2xl mx-auto">
 					{#if project.hero_banner && ready}
 						<div class="mx-4">
 							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
