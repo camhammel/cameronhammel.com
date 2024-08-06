@@ -9,6 +9,7 @@ const config = {
         'primary-light': 'var(--color-primary-light)',
         'primary-lighter': 'var(--color-primary-lighter)',
         'primary-dark': 'var(--color-primary-dark)',
+        white: '#f8fafc'
       }
     },
   },

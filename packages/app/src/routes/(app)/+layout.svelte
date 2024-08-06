@@ -5,7 +5,7 @@
 </script>
 
 <div class="w-full h-screen">
-	<div class="items-center flex flex-row justify-end">
+	<div class="items-center flex flex-row justify-end bg-white">
 		<h1 class="py-8 px-4 text-[clamp(24px,40px,64px)]">
 			<a href={isLink ? '/' : undefined}> CameronHammel.com </a>
 		</h1>

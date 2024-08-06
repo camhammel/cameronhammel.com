@@ -30,7 +30,7 @@
 		<h2 class="h-[10vh]">Experience</h2>
 		<ul class="block">
 			{#each data.projects as project, index}
-				<li>
+				<li class="w-full">
 					<ProjectTitle {project} {index} />
 				</li>
 			{/each}

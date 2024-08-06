@@ -74,10 +74,10 @@
 							class="py-2 project-title-component projects-list-item group flex flex-row w-full items-center px-8 rounded-badge duration-300 transition-all hover:shadow-md hover:-translate-y-2"
 							style:background-color={project.colourset?.main?.hex || 'black'}
 							in:slide={{
-								delay: isFirstPage ? 150 + 100 * index : 0,
+								delay: isFirstPage ? 50 + 100 * index : 0,
 								axis: 'x',
 								easing: cubicOut,
-								duration: isFirstPage ? 300 : 0
+								duration: isFirstPage ? 250 : 0
 							}}
 							href={`/projects/${project.slug}`}
 						>
