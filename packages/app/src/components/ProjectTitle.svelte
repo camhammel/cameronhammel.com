@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Project } from '$lib/types/project';
 	import { page } from '$app/stores';
-	import { slide } from 'svelte/transition';
+	import { fly, slide } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 
@@ -56,9 +56,14 @@
 							>
 								{project.name}
 							</h3>
-							<span class="text-white font-['Space_Mono'] text-lg px-2 font-bold">
-								{getDateRange()}
-							</span>
+							{#if ready}
+								<span
+									class="text-white font-['Space_Mono'] text-lg px-2 font-bold"
+									in:fly={{ y: 50, easing: cubicOut, delay: 300 }}
+								>
+									{getDateRange()}
+								</span>
+							{/if}
 						</div>
 					</div>
 				</div>

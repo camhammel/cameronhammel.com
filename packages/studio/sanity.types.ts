@@ -426,7 +426,7 @@ export type AllProjectQueryResult = Array<{
     author?: string
   }> | null
 }>
-// Source: ../app/src/routes/projects/[slug]/+page.server.ts
+// Source: ../app/src/routes/(app)/projects/[slug]/+page.server.ts
 // Variable: projectQuery
 // Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,		end_date,        tech_stack[]->,        sections[]->,        quotes[]->,    }
 export type ProjectQueryResult = Array<{
