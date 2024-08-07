@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { urlFor } from '$lib/sanity/client';
 	import type {
 		Project,
 		ProjectIntersectionElement,
@@ -29,8 +30,15 @@
 
 <aside class="project-sidebar h-fit grid-rows-2 grid gap-4 sticky top-3">
 	<div class="bg-[#fff] h-fit rounded-md p-4 flex flex-col gap-4">
+		{#if project.company_image}
+			<img
+				src={urlFor(project.company_image)?.url()}
+				class="rounded-2xl bg-primary-lighter"
+				alt="Company Logo"
+			/>
+		{/if}
 		<div>
-			<h5>{project.name}</h5>
+			<h5>About</h5>
 			<p class="text-sm">{project.summary}</p>
 		</div>
 		<div>
