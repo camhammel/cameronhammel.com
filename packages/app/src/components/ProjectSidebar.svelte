@@ -37,34 +37,42 @@
 				alt="Company Logo"
 			/>
 		{/if}
-		<div>
-			<h5>About</h5>
-			<p class="text-sm">{project.summary}</p>
-		</div>
-		<div>
-			<h5>Industry</h5>
-			<p class="text-sm">{project.industry}</p>
-		</div>
-		<div>
-			<h5>Website</h5>
-			<a href={project.website} class="text-sm link">{project.website}</a>
-		</div>
+		{#if project.summary}
+			<div>
+				<h5>About</h5>
+				<p class="text-sm">{project.summary}</p>
+			</div>
+		{/if}
+		{#if project.industry}
+			<div>
+				<h5>Industry</h5>
+				<p class="text-sm">{project.industry}</p>
+			</div>
+		{/if}
+		{#if project.website}
+			<div>
+				<h5>Website</h5>
+				<a href={project.website} class="text-sm link">{project.website}</a>
+			</div>
+		{/if}
 	</div>
 	{#if intersectionElements.length}
 		<div class="bg-[#fff] h-fit rounded-md p-4">
 			<h5>On this page</h5>
 			<div class="flex flex-col mt-1">
-				{#each intersectionElements as [id, { title, intersecting }]}
-					<div
-						class="border-l-2 border-solid border-slate-300 pl-4 transition-colors duration-200"
-						class:border-primary={intersecting}
-					>
-						<a
-							href={`#${id}`}
-							class="text-sm link transition-colors duration-200"
-							class:text-primary={intersecting}>{title}</a
+				{#each intersectionElements as [id, { show, title, intersecting }]}
+					{#if show}
+						<div
+							class="border-l-2 border-solid border-slate-300 pl-4 transition-colors duration-500"
+							class:border-primary={intersecting}
 						>
-					</div>
+							<a
+								href={`#${id}`}
+								class="text-sm link transition-colors duration-500"
+								class:text-primary={intersecting}>{title}</a
+							>
+						</div>
+					{/if}
 				{/each}
 			</div>
 		</div>

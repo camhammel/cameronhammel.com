@@ -3,8 +3,6 @@
 	import { fade, fly } from 'svelte/transition';
 	import IntersectionObserver from 'svelte-intersection-observer';
 
-	import { type ProjectIntersectionElements } from '$lib/types/project';
-
 	import ProjectTitle from '../../../../components/ProjectTitle.svelte';
 	import ProjectSection from '../../../../components/ProjectSection.svelte';
 	import ProjectQuote from '../../../../components/ProjectQuote.svelte';
@@ -72,7 +70,7 @@
 							</div>
 						</IntersectionObserver>
 						<div class="m-4 grid grid-cols-4 gap-4">
-							<div class="col-span-3 bg-[#fff] rounded-md p-4">
+							<div class="col-span-3 bg-[#fff] rounded-md py-4 px-8">
 								{#if project.sections?.length}
 									<IntersectionObserver
 										element={sectionNode}
@@ -111,10 +109,19 @@
 								projectIntersectionElements={{
 									'project-tech_stack': {
 										intersecting: techStackIntersecting,
-										title: 'Tech Stack'
+										title: 'Tech Stack',
+										show: !!project.tech_stack?.length
 									},
-									'project-sections': { intersecting: sectionIntersecting, title: 'Page Sections' },
-									'project-quotes': { intersecting: quotesIntersecting, title: 'Quotes' }
+									'project-sections': {
+										intersecting: sectionIntersecting,
+										title: 'Page Sections',
+										show: !!project.sections?.length
+									},
+									'project-quotes': {
+										intersecting: quotesIntersecting,
+										title: 'Quotes',
+										show: !!project.quotes?.length
+									}
 								}}
 							/>
 						</div>

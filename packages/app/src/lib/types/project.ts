@@ -9,7 +9,7 @@ export type Section = NonNullable<ProjectQueryResult[number]['sections']>[number
 export type ProjectIntersectionElement = {
 	title: string | false;
 	intersecting: boolean;
-	node?: HTMLElement;
+	show?: boolean;
 };
 
 export type ProjectIntersectionElements = {
