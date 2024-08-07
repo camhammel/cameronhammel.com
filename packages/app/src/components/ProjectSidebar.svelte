@@ -5,6 +5,7 @@
 		ProjectIntersectionElement,
 		ProjectIntersectionElements
 	} from '$lib/types/project';
+	import { fade } from 'svelte/transition';
 
 	export let project: Project;
 
@@ -33,8 +34,9 @@
 		{#if project.company_image}
 			<img
 				src={urlFor(project.company_image)?.url()}
-				class="rounded-2xl bg-primary-lighter"
+				class="rounded-md bg-[#fff]"
 				alt="Company Logo"
+				transition:fade
 			/>
 		{/if}
 		{#if project.summary}
@@ -60,16 +62,17 @@
 		<div class="bg-[#fff] h-fit rounded-md p-4">
 			<h5>On this page</h5>
 			<div class="flex flex-col mt-1">
-				{#each intersectionElements as [id, { show, title, intersecting }]}
+				{#each intersectionElements as [id, { show, title, intersecting }], index}
 					{#if show}
-						<div
-							class="border-l-2 border-solid border-slate-300 pl-4 transition-colors duration-500"
-							class:border-primary={intersecting}
-						>
+						<div class="flex flex-row gap-4 h-full items-center">
+							<div
+								class="h-5 w-[2px] bg-slate-200 transition-colors duration-300"
+								style="background-color: {intersecting ? 'var(--color-primary)' : ''}"
+							/>
 							<a
 								href={`#${id}`}
-								class="text-sm link transition-colors duration-500"
-								class:text-primary={intersecting}>{title}</a
+								class="text-sm link transition-colors duration-300 text-slate-400"
+								style="color: {intersecting ? 'var(--color-primary)' : ''}">{title}</a
 							>
 						</div>
 					{/if}
