@@ -34,7 +34,7 @@
 		{#if project.company_image}
 			<img
 				src={urlFor(project.company_image)?.url()}
-				class="rounded-md bg-[#fff]"
+				class="rounded-md bg-[#fff] px-1 object-contain"
 				alt="Company Logo"
 				transition:fade
 			/>
