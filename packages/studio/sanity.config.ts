@@ -1,4 +1,4 @@
-import { defineConfig } from 'sanity'
+import {defineConfig} from 'sanity'
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
 import {structureTool} from 'sanity/structure'
@@ -7,7 +7,7 @@ import types from './schemas'
 
 const config = defineConfig({
   name: 'default',
-  title: 'CameronHammel.com',
+  title: 'CameronHammel.dev',
 
   projectId: '9llpwxop',
   dataset: 'production',
@@ -17,6 +17,6 @@ const config = defineConfig({
   schema: {
     types,
   },
-});
+})
 
-export default config;
+export default config
