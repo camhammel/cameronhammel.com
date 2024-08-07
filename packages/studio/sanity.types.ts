@@ -441,7 +441,7 @@ export type AllProjectQueryResult = Array<{
 }>
 // Source: ../app/src/routes/(app)/projects/[slug]/+page.server.ts
 // Variable: projectQuery
-// Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,		end_date,        tech_stack[]->,        sections[]->,        quotes[]->,    }
+// Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,		industry,		website,		company_image,        start_date,		end_date,        tech_stack[]->,        sections[]->,        quotes[]->,    }
 export type ProjectQueryResult = Array<{
   slug: string
   name: string
@@ -468,6 +468,19 @@ export type ProjectQueryResult = Array<{
     _type: 'image'
   } | null
   summary: string
+  industry: string | null
+  website: string | null
+  company_image: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
   start_date: string
   end_date: string | null
   tech_stack: Array<{

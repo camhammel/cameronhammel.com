@@ -2,6 +2,7 @@
     "globals": {
         "ProjectQuote": true,
         "ProjectSection": true,
+        "ProjectSidebar": true,
         "ProjectTechStack": true,
         "ProjectTitle": true,
         "CustomMark": true,

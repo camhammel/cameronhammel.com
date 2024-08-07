@@ -100,6 +100,9 @@ importers:
       svelte:
         specifier: ^4.2.18
         version: 4.2.18
+      svelte-intersection-observer:
+        specifier: ^1.0.0
+        version: 1.0.0
       svelte-seo:
         specifier: ^1.6.1
         version: 1.6.1(typescript@5.5.3)
@@ -5004,6 +5007,9 @@ packages:
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
+
+  svelte-intersection-observer@1.0.0:
+    resolution: {integrity: sha512-AoxSog8fSt9sSN8ajMYM1I48ndq+rmPlaZSkJFCRbZ7I3KO8IPX6pl5mewWxdYL1JDI06hHu/7epn3h5tlJV9w==}
 
   svelte-seo@1.6.1:
     resolution: {integrity: sha512-vTKvOA0rl3HVhgbyoMhwz0P1s+18ldOT+lHlTlrQn7Mn0SBx7Ia7MB+llF4O/mYoiV5idmNu8i3xWsam8COsbw==}
@@ -11149,6 +11155,8 @@ snapshots:
   svelte-hmr@0.16.0(svelte@4.2.18):
     dependencies:
       svelte: 4.2.18
+
+  svelte-intersection-observer@1.0.0: {}
 
   svelte-seo@1.6.1(typescript@5.5.3):
     dependencies:

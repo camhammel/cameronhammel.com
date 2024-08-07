@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import IntersectionObserver from 'svelte-intersection-observer';
+
+	import { type ProjectIntersectionElements } from '$lib/types/project';
 
 	import ProjectTitle from '../../../../components/ProjectTitle.svelte';
 	import ProjectSection from '../../../../components/ProjectSection.svelte';
@@ -9,6 +12,7 @@
 	import { urlFor } from '$lib/sanity/client';
 	import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
 	import { cubicOut } from 'svelte/easing';
+	import ProjectSidebar from '../../../../components/ProjectSidebar.svelte';
 
 	let ready = false;
 	onMount(() => {
@@ -26,6 +30,14 @@
 		lighter: { hex: '#000' },
 		dark: { hex: '#000' }
 	};
+
+	let sectionNode: HTMLElement;
+	let quotesNode: HTMLElement;
+	let techStackNode: HTMLElement;
+
+	let sectionIntersecting = false;
+	let quotesIntersecting = false;
+	let techStackIntersecting = false;
 </script>
 
 <div
@@ -48,37 +60,63 @@
 						</div>
 					{/if}
 					<div class="my-4">
-						{#if project.tech_stack?.length}
-							<ProjectTechStack {project} />
-						{/if}
+						<IntersectionObserver
+							element={techStackNode}
+							bind:intersecting={techStackIntersecting}
+							threshold={0.7}
+						>
+							<div id="project-tech_stack" bind:this={techStackNode}>
+								{#if project.tech_stack?.length}
+									<ProjectTechStack {project} />
+								{/if}
+							</div>
+						</IntersectionObserver>
 						<div class="m-4 grid grid-cols-4 gap-4">
 							<div class="col-span-3 bg-[#fff] rounded-md p-4">
 								{#if project.sections?.length}
-									<section id="project-sections">
-										{#each project.sections as section}
-											<ProjectSection {section} />
-										{/each}
-									</section>
+									<IntersectionObserver
+										element={sectionNode}
+										bind:intersecting={sectionIntersecting}
+										threshold={0.7}
+									>
+										<section id="project-sections" bind:this={sectionNode}>
+											{#each project.sections as section}
+												<ProjectSection {section} />
+											{/each}
+										</section>
+									</IntersectionObserver>
 								{/if}
 								<section>
 									{#if project.quotes?.length}
-										<div
-											id="project-quotes"
-											class="carousel carousel-center rounded-box gap-8 justify-center flex-wrap sm:flex-nowrap"
+										<IntersectionObserver
+											element={quotesNode}
+											bind:intersecting={quotesIntersecting}
+											threshold={0.7}
 										>
-											{#each project.quotes as quote}
-												<ProjectQuote {quote} />
-											{/each}
-										</div>
+											<div
+												id="project-quotes"
+												class="carousel carousel-center rounded-box gap-8 justify-center flex-wrap sm:flex-nowrap"
+												bind:this={quotesNode}
+											>
+												{#each project.quotes as quote}
+													<ProjectQuote {quote} />
+												{/each}
+											</div>
+										</IntersectionObserver>
 									{/if}
 								</section>
 							</div>
-							<div class="project-sidebar h-fit grid-rows-2 grid gap-4 sticky top-4">
-								<div class="bg-[#fff] rounded-md p-4">
-									<h5>{project.name}</h5>
-								</div>
-								<div class="bg-[#fff] rounded-md p-4">On this page</div>
-							</div>
+							<ProjectSidebar
+								{project}
+								projectIntersectionElements={{
+									'project-tech_stack': {
+										intersecting: techStackIntersecting,
+										title: 'Tech Stack'
+									},
+									'project-sections': { intersecting: sectionIntersecting, title: 'Page Sections' },
+									'project-quotes': { intersecting: quotesIntersecting, title: 'Quotes' }
+								}}
+							/>
 						</div>
 					</div>
 				</div>
