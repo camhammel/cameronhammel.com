@@ -39,6 +39,12 @@
 				transition:fade
 			/>
 		{/if}
+		{#if project.job_title}
+			<div>
+				<h5>Job Title</h5>
+				<p class="text-sm">{project.job_title}</p>
+			</div>
+		{/if}
 		{#if project.summary}
 			<div>
 				<h5>About</h5>

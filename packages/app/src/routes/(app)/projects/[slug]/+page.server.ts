@@ -14,6 +14,7 @@ export async function load({ params }: { params: { slug: string } }) {
 		company_image,
         start_date,
 		end_date,
+		job_title,
         tech_stack[]->,
         sections[]->,
         quotes[]->,

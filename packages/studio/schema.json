@@ -1083,6 +1083,13 @@
         },
         "optional": true
       },
+      "job_title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "company_image": {
         "type": "objectAttribute",
         "value": {

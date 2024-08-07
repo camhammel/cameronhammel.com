@@ -176,6 +176,7 @@ export type Project = {
   summary: string
   industry?: string
   website?: string
+  job_title?: string
   company_image?: {
     asset?: {
       _ref: string
@@ -441,7 +442,7 @@ export type AllProjectQueryResult = Array<{
 }>
 // Source: ../app/src/routes/(app)/projects/[slug]/+page.server.ts
 // Variable: projectQuery
-// Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,		industry,		website,		company_image,        start_date,		end_date,        tech_stack[]->,        sections[]->,        quotes[]->,    }
+// Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,		industry,		website,		company_image,        start_date,		end_date,		job_title,        tech_stack[]->,        sections[]->,        quotes[]->,    }
 export type ProjectQueryResult = Array<{
   slug: string
   name: string
@@ -483,6 +484,7 @@ export type ProjectQueryResult = Array<{
   } | null
   start_date: string
   end_date: string | null
+  job_title: string | null
   tech_stack: Array<{
     _id: string
     _type: 'techstackitem'

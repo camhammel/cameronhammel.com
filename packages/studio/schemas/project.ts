@@ -47,6 +47,11 @@ export default defineType({
       title: 'Website',
     }),
     defineField({
+      name: 'job_title',
+      type: 'string',
+      title: 'Job Title',
+    }),
+    defineField({
       name: 'company_image',
       type: 'image',
       title: 'Company Image',
