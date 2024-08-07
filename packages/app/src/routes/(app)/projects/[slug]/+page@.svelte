@@ -43,7 +43,7 @@
 			>
 				<div class="max-w-screen-2xl mx-auto">
 					{#if project.hero_banner && ready}
-						<div class="mx-4">
+						<div class="mx-4 flex justify-center flex-row">
 							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
 						</div>
 					{/if}
