@@ -7,11 +7,12 @@
 	export let section: Section;
 
 	let containerClass =
-		section?.image_placement === 'left'
-			? 'flex flex-1 flex-col sm:flex-row items-center justify-between lg:gap-24 sm:gap-8 gap-4'
+		'my-4 flex flex-1 flex-col items-center ' +
+		(section?.image_placement === 'left'
+			? 'sm:flex-row justify-between lg:gap-24 sm:gap-8 gap-4'
 			: section?.image_placement === 'right'
-				? 'flex flex-1 flex-col sm:flex-row-reverse items-center justify-between lg:gap-24 sm:gap-8 gap-4'
-				: 'flex flex-1 flex-col items-center gap-2';
+				? 'sm:flex-row-reverse justify-between lg:gap-24 sm:gap-8 gap-4'
+				: 'gap-2');
 
 	let textContainerClass =
 		section?.image_placement === 'left'
@@ -31,7 +32,7 @@
 					class:sm:justify-start={section?.image_placement === 'right'}
 				>
 					<img
-						class="rounded-md max-w-[55%]"
+						class="rounded-md max-w-[70%]"
 						transition:fade={{ delay: 200 }}
 						src={urlFor(section.image)?.url()}
 						alt="Project Section"
@@ -39,7 +40,7 @@
 				</div>
 			{/if}
 			<div class={textContainerClass}>
-				<div class="max-w-[55%] mx-auto sm:mx-0">
+				<div class="max-w-full mx-auto sm:mx-0">
 					<PortableText
 						value={section.content}
 						components={{ listItem: { normal: DefaultListItem, bullet: DefaultListItem } }}

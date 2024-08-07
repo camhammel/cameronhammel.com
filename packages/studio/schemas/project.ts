@@ -37,6 +37,21 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'industry',
+      type: 'string',
+      title: 'Industry',
+    }),
+    defineField({
+      name: 'website',
+      type: 'string',
+      title: 'Website',
+    }),
+    defineField({
+      name: 'company_image',
+      type: 'image',
+      title: 'Company Image',
+    }),
+    defineField({
       name: 'start_date',
       type: 'date',
       title: 'Start Date',
