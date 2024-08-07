@@ -24,18 +24,20 @@
 <div>
 	{#if section}
 		<section class={containerClass}>
-			<div
-				class="flex flex-1 items-center justify-center"
-				class:sm:justify-end={section?.image_placement === 'left'}
-				class:sm:justify-start={section?.image_placement === 'right'}
-			>
-				<img
-					class="rounded-md max-w-[55%]"
-					transition:fade={{ delay: 200 }}
-					src={urlFor(section.image)?.url()}
-					alt="Project Section"
-				/>
-			</div>
+			{#if section.image}
+				<div
+					class="flex flex-1 items-center justify-center"
+					class:sm:justify-end={section?.image_placement === 'left'}
+					class:sm:justify-start={section?.image_placement === 'right'}
+				>
+					<img
+						class="rounded-md max-w-[55%]"
+						transition:fade={{ delay: 200 }}
+						src={urlFor(section.image)?.url()}
+						alt="Project Section"
+					/>
+				</div>
+			{/if}
 			<div class={textContainerClass}>
 				<div class="max-w-[55%] mx-auto sm:mx-0">
 					<PortableText
