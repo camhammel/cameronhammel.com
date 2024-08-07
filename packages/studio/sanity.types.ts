@@ -174,6 +174,19 @@ export type Project = {
     _type: 'image'
   }
   summary: string
+  industry?: string
+  website?: string
+  company_image?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
   start_date: string
   end_date?: string
   tech_stack?: Array<{
