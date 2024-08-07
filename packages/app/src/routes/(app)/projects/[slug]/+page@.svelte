@@ -48,7 +48,7 @@
 		<ProjectTitle {project} />
 		{#if ready}
 			<div
-				class="rounded-3xl bg-white pt-4 px-4 z-10 bottom-12 relative gap-4"
+				class="rounded-3xl bg-white p-4 z-10 bottom-12 relative gap-4"
 				transition:fly={{ duration: 500, delay: 200, y: 100, easing: cubicOut, opacity: 1 }}
 			>
 				<div class="max-w-screen-2xl mx-auto col-span-3">
@@ -70,7 +70,7 @@
 							</div>
 						</IntersectionObserver>
 						<div class="m-4 grid grid-cols-4 gap-4">
-							<div class="col-span-3 bg-[#fff] rounded-md py-4 px-8">
+							<div class="sm:col-span-3 col-span-4 bg-[#fff] rounded-md py-4 px-8">
 								{#if project.sections?.length}
 									<IntersectionObserver
 										element={sectionNode}

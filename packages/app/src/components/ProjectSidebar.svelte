@@ -29,7 +29,7 @@
 	$: intersectionElements = Object.entries(projectIntersectionElements);
 </script>
 
-<aside class="project-sidebar h-fit grid-rows-2 grid gap-4 sticky top-3">
+<aside class="project-sidebar h-fit sm:col-span-1 col-span-4 grid gap-4 sticky top-3">
 	<div class="bg-[#fff] h-fit rounded-md p-4 flex flex-col gap-4">
 		{#if project.company_image}
 			<img
