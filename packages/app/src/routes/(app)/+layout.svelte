@@ -4,9 +4,9 @@
 	$: isLink = $page.url.pathname !== '/';
 </script>
 
-<div class="w-full h-screen">
-	<div class="items-center flex flex-row justify-end bg-white">
-		<h1 class="py-8 px-4 text-[clamp(24px,40px,64px)]">
+<div class="w-full h-screen flex-col flex">
+	<div class="items-center flex flex-row sm:justify-end justify-center bg-white">
+		<h1 class="py-8 px-4 max-w-sm text-[clamp(18px,28px,48px)] sm:text-end text-center">
 			{#if isLink}
 				<a href="/"> CameronHammel.dev </a>
 			{:else}
@@ -14,7 +14,7 @@
 			{/if}
 		</h1>
 	</div>
-	<div class="h-[calc(100vh-124px)]"><slot></slot></div>
+	<div class="flex flex-1"><slot></slot></div>
 </div>
 <SvelteSeo
 	title="Cameron Hammel"

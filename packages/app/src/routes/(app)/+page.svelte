@@ -25,12 +25,14 @@
 	});
 </script>
 
-<div class="min-h-full bg-gradient-to-b from-white to-slate-200 px-8">
+<div class="min-h-full w-full bg-gradient-to-b from-white to-slate-200 px-8">
 	{#if data.projects?.length}
-		<h2 class="h-[10vh]">Experience</h2>
-		<ul class="block">
+		<h2 class="overflow-x-hidden sm:text-left text-center text-[clamp(1.5rem,4vw,2rem)]">
+			Experience
+		</h2>
+		<ul class="grid grid-flow-row auto-rows-[1fr] gap-8 sm:gap-12 sm:mt-12">
 			{#each data.projects as project, index}
-				<li class="w-full">
+				<li class="w-full h-full">
 					<ProjectTitle {project} {index} />
 				</li>
 			{/each}
