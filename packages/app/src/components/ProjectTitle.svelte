@@ -43,16 +43,16 @@
 				<div class="relative pt-8 pb-12 bg-primary">
 					<a
 						href="/"
-						class="absolute left-10 p-2 top-14 w-12 text-white hover:bg-primary-dark rounded-md transition-colors duration-300"
+						class="absolute left-10 p-2 top-14 w-12 text-white hover:bg-primary-dark z-10 rounded-md transition-colors duration-300"
 					>
 						<Arrow />
 					</a>
 					<div class="min-h-[10vh] flex flex-col w-full items-center pb-12">
 						<div
-							class="project-title-component projects-list-item group flex flex-col items-center px-8 w-full duration-300 transition-colors"
+							class="project-title-component projects-list-item group flex flex-col items-center px-28 w-full duration-300 transition-colors"
 						>
 							<h3
-								class="group-hover:text-white transition-colors duration-300 line-clamp-1"
+								class="group-hover:text-white transition-colors duration-300 text-wrap text-center"
 								style={`view-transition-name: title-${project.slug}`}
 							>
 								{project.name}
