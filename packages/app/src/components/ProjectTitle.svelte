@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Project } from '$lib/types/project';
 	import { page } from '$app/stores';
-	import { fly, slide } from 'svelte/transition';
+	import { fly, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import Arrow from '../svg/arrow.svelte';
@@ -72,15 +72,15 @@
 			<div class="flex flex-col flex-grow w-full items-center justify-center">
 				{#if ready}
 					<a
-						class="py-1 sm:py-2 project-title-component projects-list-item group flex flex-grow flex-row w-full items-center px-4 sm:px-8 rounded-badge duration-300 transition-all hover:shadow-md hover:-translate-y-2"
+						class="origin-top py-1 sm:py-2 project-title-component projects-list-item group flex flex-grow flex-row w-full items-center px-4 sm:px-8 rounded-badge duration-300 transition-all hover:shadow-md hover:-translate-y-2"
 						style:background-color={project.colourset?.main?.hex || 'black'}
-						in:slide={{
+						href={`/projects/${project.slug}`}
+						in:scale={{
 							delay: isFirstPage ? 50 + 100 * index : 0,
-							axis: 'x',
+							start: 0.5,
 							easing: cubicOut,
 							duration: isFirstPage ? 250 : 0
 						}}
-						href={`/projects/${project.slug}`}
 					>
 						<span
 							class="text-white font-['Space_Mono'] text-lg w-10 px-2 break-words font-bold hidden sm:inline"
