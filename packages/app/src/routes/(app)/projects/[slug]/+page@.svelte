@@ -39,7 +39,7 @@
 </script>
 
 <div
-	class="project-details relative h-screen flex flex-col"
+	class="project-details relative flex flex-col"
 	style="--color-primary: {colourset.main.hex}; --color-primary-light: {colourset.light
 		.hex}; --color-primary-lighter: {colourset.lighter.hex}; --color-primary-dark: {colourset.dark
 		.hex};"
