@@ -2,6 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import Components from 'unplugin-svelte-components/vite';
 import { FontaineTransform } from "fontaine";
 import { defineConfig } from 'vite';
+import houdini from 'houdini/vite';
 
 export default defineConfig({
 	plugins: [
@@ -15,6 +16,7 @@ export default defineConfig({
 				}
 			]
 		}),
+		houdini(),
 		sveltekit(),
 		FontaineTransform.vite({ fallbacks: ["Arial", "Roboto"] }),
 	]
