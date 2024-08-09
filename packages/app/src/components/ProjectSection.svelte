@@ -3,6 +3,8 @@
 	import { urlFor } from '$lib//sanity/client';
 	import { fade } from 'svelte/transition';
 	import type { Section } from '$lib/types/project';
+	import { onMount } from 'svelte';
+	import { getRoundedImageWidth } from '$lib/utils';
 
 	export let section: Section;
 
@@ -20,6 +22,13 @@
 			: section?.image_placement === 'right'
 				? 'sm:items-end justify-center flex flex-1 flex-col sm:text-right text-center'
 				: 'sm:items-center justify-center flex flex-1 flex-col text-center';
+
+	let imageSrc: string | undefined = undefined;
+	onMount(() => {
+		let width = document.querySelector('html')?.clientWidth;
+		if (section?.image && width)
+			imageSrc = urlFor(section.image)?.width(getRoundedImageWidth(width))?.url();
+	});
 </script>
 
 <div>
@@ -34,7 +43,7 @@
 					<img
 						class="rounded-md max-w-[70%]"
 						transition:fade={{ delay: 200 }}
-						src={urlFor(section.image)?.url()}
+						src={imageSrc}
 						alt="Project Section"
 					/>
 				</div>

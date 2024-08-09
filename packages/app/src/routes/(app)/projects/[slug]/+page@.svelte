@@ -11,13 +11,16 @@
 	import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
 	import { cubicOut } from 'svelte/easing';
 	import ProjectSidebar from '../../../../components/ProjectSidebar.svelte';
+	import { getRoundedImageWidth } from '$lib/utils';
 
+	let heroBannerSrc: string | undefined = undefined;
 	let ready = false;
+
 	onMount(() => {
 		ready = true;
-		setTimeout(() => {
-			document.querySelector('.project-details')?.classList.remove('overflow-y-hidden');
-		}, 500);
+		let width = document.querySelector('html')?.clientWidth;
+		if (project?.hero_banner && width)
+			heroBannerSrc = urlFor(project.hero_banner)?.width(getRoundedImageWidth(width, 400))?.url();
 	});
 
 	export let data;
@@ -39,7 +42,7 @@
 </script>
 
 <div
-	class="project-details relative flex flex-col"
+	class="project-details relative flex flex-col bg-white"
 	style="--color-primary: {colourset.main.hex}; --color-primary-light: {colourset.light
 		.hex}; --color-primary-lighter: {colourset.lighter.hex}; --color-primary-dark: {colourset.dark
 		.hex};"
@@ -48,13 +51,13 @@
 		<ProjectTitle {project} />
 		{#if ready}
 			<div
-				class="rounded-3xl bg-white p-4 z-10 bottom-12 relative gap-4 flex-1"
+				class="-mb-12 bg-white rounded-3xl p-4 z-10 bottom-12 relative gap-4 flex-1"
 				transition:fly={{ duration: 500, delay: 200, y: 100, easing: cubicOut, opacity: 1 }}
 			>
 				<div class="max-w-screen-2xl mx-auto col-span-3">
 					{#if project.hero_banner && ready}
 						<div class="flex justify-center flex-row">
-							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
+							<img src={heroBannerSrc} class="rounded-2xl" alt="Hero Banner" />
 						</div>
 					{/if}
 					<div class="my-4">
