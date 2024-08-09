@@ -20,7 +20,7 @@
 	<div class="items-center flex flex-row sm:justify-end justify-center bg-white overflow-hidden">
 		{#if mounted}
 			<h1
-				class="py-8 px-4 max-w-sm sm:text-end text-center"
+				class="py-8 px-4 sm:text-end text-center"
 				in:fly={{
 					easing: cubicOut,
 					delay: 150,
@@ -29,9 +29,9 @@
 				}}
 			>
 				{#if isLink}
-					<a href="/" class="inline-block w-[328px]"> <HeaderLogo /> </a>
+					<a href="/" class="inline-block w-80 sm:w-[458px]"> <HeaderLogo /> </a>
 				{:else}
-					<div class="inline-block w-[328px]"><HeaderLogo /></div>
+					<div class="inline-block w-80 sm:w-[458px]"><HeaderLogo /></div>
 				{/if}
 			</h1>
 		{/if}
