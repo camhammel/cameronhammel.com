@@ -11,16 +11,11 @@
 	import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
 	import { cubicOut } from 'svelte/easing';
 	import ProjectSidebar from '../../../../components/ProjectSidebar.svelte';
-	import { getRoundedImageWidth } from '$lib/utils';
 
-	let heroBannerSrc: string | undefined = undefined;
 	let ready = false;
 
 	onMount(() => {
 		ready = true;
-		let width = document.querySelector('html')?.clientWidth;
-		if (project?.hero_banner && width)
-			heroBannerSrc = urlFor(project.hero_banner)?.width(getRoundedImageWidth(width, 400))?.url();
 	});
 
 	export let data;
@@ -57,7 +52,7 @@
 				<div class="max-w-screen-2xl mx-auto col-span-3">
 					{#if project.hero_banner && ready}
 						<div class="flex justify-center flex-row">
-							<img src={heroBannerSrc} class="rounded-2xl" alt="Hero Banner" />
+							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
 						</div>
 					{/if}
 					<div class="my-4">
