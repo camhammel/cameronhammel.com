@@ -76,8 +76,8 @@
 										threshold={0.7}
 									>
 										<section id="project-sections" bind:this={sectionNode}>
-											{#each project.sections as section}
-												<ProjectSection {section} />
+											{#each project.sections as section, index}
+												<ProjectSection {section} {index} />
 											{/each}
 										</section>
 									</IntersectionObserver>
