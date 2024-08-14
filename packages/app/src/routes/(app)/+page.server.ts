@@ -10,13 +10,8 @@ export async function load() {
         slug,
         name,
         colourset->,
-        hero_banner,
-        summary,
         start_date,
 		end_date,
-        tech_stack->,
-        sections->,
-        quotes->
     }`;
 	const portfolioQuery = groq`*[_type == "portfolio"]{
 		profile_image,

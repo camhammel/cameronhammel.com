@@ -48,7 +48,7 @@
 			class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-evenly flex-grow"
 		>
 			<h2
-				class="text-6xl tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto"
+				class="text-6xl tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto my-4"
 			>
 				Hi, I'm<br />Cameron.
 			</h2>
@@ -63,10 +63,15 @@
 		>
 			<div class="glass-card col-span-2 sm:row-span-2 justify-center items-center flex">
 				<p
-					class="sm:text-lg font-medium text-center text-white block aspect-square rounded-full overflow-clip w-2/3 sm:w-full"
+					class="sm:text-lg font-medium text-center text-white block aspect-square rounded-full overflow-clip w-2/3 max-w-64 max-h-64"
 				>
 					{#if profileImage}
-						<img src={urlFor(profileImage)?.crop('focalpoint').url()} alt="Project Section" />
+						<img
+							src={urlFor(profileImage)?.width(256).url()}
+							alt="Project Section"
+							height="256"
+							width="256"
+						/>
 					{:else}
 						<p>👋</p>
 					{/if}
