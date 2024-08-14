@@ -213,6 +213,37 @@ export type Project = {
   }>
 }
 
+export type Colourset = {
+  _id: string
+  _type: 'colourset'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  light: Color
+  lighter: Color
+  main: Color
+  dark: Color
+}
+
+export type Portfolio = {
+  _id: string
+  _type: 'portfolio'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  profile_image: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+}
+
 export type SanityImageCrop = {
   _type: 'sanity.imageCrop'
   top?: number
@@ -270,18 +301,6 @@ export type SanityImageMetadata = {
   isOpaque?: boolean
 }
 
-export type Colourset = {
-  _id: string
-  _type: 'colourset'
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  light: Color
-  lighter: Color
-  main: Color
-  dark: Color
-}
-
 export type Color = {
   _type: 'color'
   hex?: string
@@ -326,12 +345,13 @@ export type AllSanitySchemaTypes =
   | Section
   | Quote
   | Project
+  | Colourset
+  | Portfolio
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | Colourset
   | Color
   | RgbaColor
   | HsvaColor
