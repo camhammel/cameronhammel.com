@@ -21,7 +21,7 @@
 	});
 </script>
 
-<div id="fp-about" class="snap-start min-h-svh w-full bg-white flex flex-col">
+<div id="fp-about" class="sm:snap-start min-h-svh w-full bg-white flex flex-col">
 	<div class="items-center flex flex-row sm:justify-end justify-center bg-white overflow-x-hidden">
 		{#if mounted}
 			<h1
