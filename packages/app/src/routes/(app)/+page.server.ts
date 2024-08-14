@@ -1,7 +1,7 @@
 // src/routes/+page.js
 import dayjs from 'dayjs';
 
-import type { AllProjectQueryResult, AllSanitySchemaTypes } from 'studio';
+import type { AllProjectQueryResult, PortfolioQueryResult, TechStackQueryResult } from 'studio';
 import { client } from '$lib/sanity/client';
 
 import groq from 'groq';
@@ -18,13 +18,28 @@ export async function load() {
         sections->,
         quotes->
     }`;
+	const portfolioQuery = groq`*[_type == "portfolio"]{
+		profile_image,
+	}`;
 
-	const data = await client.fetch<AllProjectQueryResult>(allProjectQuery);
-	data.sort((a, b) => (dayjs(a.start_date).isBefore(b.start_date) ? 0 : -1));
+	const techStackQuery = groq`*[_type == "techstackitem"]{
+		name,
+	}`;
 
-	if (data) {
+	const query = `{ "projects": ${allProjectQuery}, "portfolio": ${portfolioQuery}, "techStack": ${techStackQuery} }`;
+
+	const { projects, portfolio, techStack } = await client.fetch<{
+		projects: AllProjectQueryResult;
+		portfolio: PortfolioQueryResult;
+		techStack: TechStackQueryResult;
+	}>(query);
+	projects.sort((a, b) => (dayjs(a.start_date).isBefore(b.start_date) ? 0 : -1));
+
+	if (projects && portfolio) {
 		return {
-			projects: data
+			projects,
+			portfolio: portfolio[0],
+			techStack
 		};
 	}
 	return {

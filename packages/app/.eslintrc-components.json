@@ -1,5 +1,6 @@
 {
     "globals": {
+        "AboutMe": true,
         "ProjectQuote": true,
         "ProjectSection": true,
         "ProjectSidebar": true,

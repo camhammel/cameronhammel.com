@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import { Fullpage, FullpageSection } from 'svelte-fullpage';
 
 	import ProjectTitle from '../../components/ProjectTitle.svelte';
-	import { onDestroy, onMount } from 'svelte';
 
 	export let data;
 
@@ -28,8 +26,12 @@
 	});
 </script>
 
-<Fullpage>
-	<FullpageSection title="experience" id="fp-experience" class="bg-white px-8">
+<div class="w-full max-w-screen flex flex-col items-center justify-center">
+	<AboutMe profileImage={data.portfolio?.profile_image} techStackItems={data.techStack} />
+	<div
+		id="fp-experience"
+		class="fp-section pt-32 bg-white px-8 w-full flex flex-col items-center justify-center"
+	>
 		<div>
 			{#if data.projects?.length}
 				<h2 class="overflow-x-hidden sm:text-left text-center text-[clamp(1.5rem,4vw,2rem)]">
@@ -46,9 +48,17 @@
 				<p>No projects found.</p>
 			{/if}
 		</div>
-	</FullpageSection>
-	<FullpageSection title="about" id="fp-about" class="bg-white">About Me (WIP)</FullpageSection>
-</Fullpage>
+	</div>
+</div>
+
+<svelte:head>
+	<style>
+		html {
+			overflow-y: scroll;
+			scroll-snap-type: y mandatory;
+		}
+	</style>
+</svelte:head>
 
 <style lang="scss">
 	:global(.svelte-fp-section-indicator) {

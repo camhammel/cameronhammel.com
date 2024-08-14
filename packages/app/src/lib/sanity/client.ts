@@ -16,5 +16,5 @@ export const client = createClient({
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source?: SanityAsset) {
-	if (source) return builder.image(source)
+	if (source) return builder.image(source);
 }

@@ -23,8 +23,17 @@
 }
 
 html {
-	scroll-behavior: smooth;
 	max-width: 100vw;
+}
+
+.fp-container {
+	overflow-y: scroll;
+	scroll-snap-type: y proximity;
+}
+
+.fp-section {
+	min-height: 100vh;
+	scroll-snap-align: center;
 }
 
 html,
@@ -66,4 +75,8 @@ h5 {
 	font-size: 20px;
 	font-weight: bold;
 	@apply text-slate-700;
+}
+
+.glass-card {
+	@apply bg-[#ffffff22] rounded-lg shadow-xl backdrop:blur-sm border border-[#ffffff9f] border-solid p-2 sm:p-4 lg:p-8 text-slate-800;
 }

@@ -460,6 +460,26 @@ export type AllProjectQueryResult = Array<{
     author?: string
   }> | null
 }>
+// Variable: portfolioQuery
+// Query: *[_type == "portfolio"]{		profile_image,	}
+export type PortfolioQueryResult = Array<{
+  profile_image: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+}>
+// Variable: techStackQuery
+// Query: *[_type == "techstackitem"]{		name,	}
+export type TechStackQueryResult = Array<{
+  name: string
+}>
 // Source: ../app/src/routes/(app)/projects/[slug]/+page.server.ts
 // Variable: projectQuery
 // Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,		industry,		website,		company_image,        start_date,		end_date,		job_title,        tech_stack[]->,        sections[]->,        quotes[]->,    }

@@ -13,8 +13,7 @@
 	let isFirstPage = true;
 
 	onMount(() => {
-		//@ts-expect-error
-		isFirstPage = !window?.navigation?.canGoBack;
+		// isFirstPage = !window?.navigation?.canGoBack;
 
 		ready = true;
 	});
@@ -42,7 +41,7 @@
 		{#if isActivePage}
 			<div class="relative pt-8 pb-12 bg-primary">
 				<a
-					href="/"
+					href="/#fp-experience"
 					class="absolute left-5 sm:left-10 p-2 top-14 w-12 text-white hover:bg-primary-dark z-10 rounded-md transition-colors duration-300"
 				>
 					<Arrow />
