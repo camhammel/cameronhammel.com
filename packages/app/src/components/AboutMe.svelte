@@ -63,7 +63,7 @@
 		>
 			<div class="glass-card col-span-2 sm:row-span-2 justify-center items-center flex">
 				<p
-					class="sm:text-lg font-medium text-center text-white block aspect-square rounded-full overflow-clip w-2/3 max-w-64 max-h-64"
+					class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip w-2/3 max-w-32 sm:max-w-64 max-h-64"
 				>
 					{#if profileImage}
 						<img
