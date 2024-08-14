@@ -58,10 +58,8 @@
 				(WIP)
 			</h2> -->
 		</div>
-		<div
-			class="grid sm:grid-cols-6 grid-cols-2 xs:grid-cols-3 sm:gap-4 gap-2 px-4 max-w-screen-2xl mx-auto"
-		>
-			<div class="glass-card sm:col-span-2 row-span-2 justify-center items-center flex">
+		<div class="grid sm:grid-cols-6 grid-cols-3 sm:gap-4 gap-2 px-4 max-w-screen-2xl mx-auto">
+			<div class="glass-card sm:col-span-2 sm:row-span-2 justify-center items-center flex">
 				<p
 					class="sm:text-lg font-medium text-center text-white block aspect-square rounded-full overflow-clip"
 				>
@@ -72,15 +70,15 @@
 					{/if}
 				</p>
 			</div>
-			<div class="glass-card sm:col-span-4 justify-center items-center flex">
+			<div class="glass-card col-span-2 sm:col-span-4 justify-center items-center flex">
+				<p class="sm:text-lg font-medium text-center text-white">GitHub Stat Here (TODO)</p>
+			</div>
+			<div class="glass-card col-span-full sm:col-span-4 justify-center items-center flex">
 				<p class="sm:text-lg font-medium text-center text-white">
 					I'm a software engineer based in Toronto, Canada. <br /><br />
 					I build cutting edge web and mobile applications using modern frameworks such as
 					<b>React-Native</b>, <b>SvelteKit</b>, and <b>Vue</b>.
 				</p>
-			</div>
-			<div class="glass-card sm:col-span-4 justify-center items-center flex">
-				<p class="sm:text-lg font-medium text-center text-white">GitHub Stat Here (TODO)</p>
 			</div>
 			<div class="glass-card col-span-full justify-center items-center flex overflow-x-hidden">
 				<p
