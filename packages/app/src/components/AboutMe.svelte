@@ -21,7 +21,7 @@
 	});
 </script>
 
-<div id="fp-about" class="fp-section w-full bg-white flex flex-col">
+<div id="fp-about" class="snap-start min-h-svh w-full bg-white flex flex-col">
 	<div class="items-center flex flex-row sm:justify-end justify-center bg-white overflow-x-hidden">
 		{#if mounted}
 			<h1
@@ -42,15 +42,15 @@
 		{/if}
 	</div>
 	<div
-		class="bg-radient-ellipse-tl from-[#6EE2F5] from-20% to-[#6454F0] to-80% flex flex-col flex-1 mx-4 mb-4 sm:mx-6 sm:mb-6 rounded-3xl px-4 pb-8 sm:p-8 justify-between gap-4 sm:gap-8"
+		class="bg-radient-ellipse-tl from-[#6EE2F5] from-20% to-[#6454F0] to-80% flex flex-col flex-1 mx-4 mb-4 sm:mx-6 sm:mb-6 rounded-3xl px-4 pb-8 sm:pt-8 justify-between gap-4 sm:gap-8"
 	>
 		<div
-			class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-evenly flex-grow sm:px-0 px-8"
+			class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-evenly flex-grow"
 		>
 			<h2
-				class="text-6xl tracking-normal sm:max-w-[50%] sm:text-8xl text-start text-white [text-transform:none;]"
+				class="text-6xl tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto"
 			>
-				Hi, I'm Cameron.
+				Hi, I'm<br />Cameron.
 			</h2>
 			<!-- <h2
 				class="text-4xl tracking-normal max-w-[50%] sm:text-8xl text-start text-white [text-transform:none;]"
@@ -58,10 +58,12 @@
 				(WIP)
 			</h2> -->
 		</div>
-		<div class="grid sm:grid-cols-6 grid-cols-3 sm:gap-4 gap-2 px-4 max-w-screen-2xl mx-auto">
-			<div class="glass-card sm:col-span-2 sm:row-span-2 justify-center items-center flex">
+		<div
+			class="grid xs:grid-cols-3 sm:grid-cols-6 grid-cols-2 sm:gap-4 gap-2 px-4 max-w-screen-2xl mx-auto"
+		>
+			<div class="glass-card col-span-2 sm:row-span-2 justify-center items-center flex">
 				<p
-					class="sm:text-lg font-medium text-center text-white block aspect-square rounded-full overflow-clip"
+					class="sm:text-lg font-medium text-center text-white block aspect-square rounded-full overflow-clip w-2/3 sm:w-full"
 				>
 					{#if profileImage}
 						<img src={urlFor(profileImage)?.crop('focalpoint').url()} alt="Project Section" />

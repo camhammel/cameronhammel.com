@@ -30,7 +30,7 @@
 	<AboutMe profileImage={data.portfolio?.profile_image} techStackItems={data.techStack} />
 	<div
 		id="fp-experience"
-		class="fp-section pt-32 bg-white px-8 w-full flex flex-col items-center justify-center"
+		class="snap-center py-32 bg-white px-8 w-full flex flex-col items-center justify-center"
 	>
 		<div>
 			{#if data.projects?.length}
@@ -59,9 +59,3 @@
 		}
 	</style>
 </svelte:head>
-
-<style lang="scss">
-	:global(.svelte-fp-section-indicator) {
-		display: none !important;
-	}
-</style>
