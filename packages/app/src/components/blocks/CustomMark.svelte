@@ -1,5 +1,5 @@
 <script lang="ts">
-	export const portableText = null;
+export const portableText = null;
 </script>
 
-<strong class="bg-white text-primary text-lg"><slot /></strong>
+<strong class="text-primary bg-white text-lg"><slot /></strong>

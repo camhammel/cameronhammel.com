@@ -1,44 +1,44 @@
 <script lang="ts">
-	import type { Project } from '$lib/types/project';
-	import { page } from '$app/stores';
-	import { fly, scale } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
-	import Arrow from '../svg/arrow.svelte';
-	import { beforeNavigate } from '$app/navigation';
-	import { lastRoute } from '$lib/stores/lastRoute';
+import type { Project } from '$lib/types/project';
+import { page } from '$app/stores';
+import { fly, scale } from 'svelte/transition';
+import { cubicOut } from 'svelte/easing';
+import { onMount } from 'svelte';
+import Arrow from '../svg/arrow.svelte';
+import { beforeNavigate } from '$app/navigation';
+import { lastRoute } from '$lib/stores/lastRoute';
 
-	export let project: Pick<Project, 'name' | 'slug' | 'start_date' | 'end_date' | 'colourset'>;
-	export let index = -1;
+export let project: Pick<Project, 'name' | 'slug' | 'start_date' | 'end_date' | 'colourset'>;
+export let index = -1;
 
-	let ready = false;
-	let isFirstPage = true;
+let ready = false;
+let isFirstPage = true;
 
-	{
-		$lastRoute;
-	}
+{
+	$lastRoute;
+}
 
-	beforeNavigate(({ from }) => {
-		$lastRoute = from?.url.pathname || '/';
-	});
+beforeNavigate(({ from }) => {
+	$lastRoute = from?.url.pathname || '/';
+});
 
-	onMount(() => {
-		isFirstPage = $lastRoute === '/';
+onMount(() => {
+	isFirstPage = $lastRoute === '/';
 
-		ready = true;
-	});
+	ready = true;
+});
 
-	function getYearFromDate(date?: string) {
-		return date?.split('-')?.[0] || '2024';
-	}
+function getYearFromDate(date?: string) {
+	return date?.split('-')?.[0] || '2024';
+}
 
-	function getDateRange() {
-		const start = project.start_date?.split('-')?.[0] || '2024';
-		const end = project.end_date?.split('-')?.[0] || 'Present';
-		return `${start} - ${end}`;
-	}
+function getDateRange() {
+	const start = project.start_date?.split('-')?.[0] || '2024';
+	const end = project.end_date?.split('-')?.[0] || 'Present';
+	return `${start} - ${end}`;
+}
 
-	const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
+const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
 </script>
 
 {#if project}
@@ -49,26 +49,26 @@
 		style={`view-transition-name: title-container-${project.slug}`}
 	>
 		{#if isActivePage}
-			<div class="relative pt-8 pb-12 bg-primary">
+			<div class="bg-primary relative pb-12 pt-8">
 				<a
 					href="/#fp-experience"
-					class="absolute left-5 sm:left-10 p-2 top-14 w-12 text-white hover:bg-primary-dark z-10 rounded-md transition-colors duration-300"
+					class="hover:bg-primary-dark absolute left-5 top-14 z-10 w-12 rounded-md p-2 text-white transition-colors duration-300 sm:left-10"
 				>
 					<Arrow />
 				</a>
-				<div class="flex flex-col w-full items-center pb-12">
+				<div class="flex w-full flex-col items-center pb-12">
 					<div
-						class="project-title-component projects-list-item group flex flex-col items-center px-28 w-full duration-300 transition-colors"
+						class="project-title-component projects-list-item group flex w-full flex-col items-center px-28 transition-colors duration-300"
 					>
 						<h3
-							class="group-hover:text-white transition-colors duration-300 text-wrap text-center sm:text-[3rem] sm:leading-[4.5rem] text-3xl"
+							class="text-wrap text-center text-3xl transition-colors duration-300 group-hover:text-white sm:text-[3rem] sm:leading-[4.5rem]"
 							style={`view-transition-name: title-${project.slug}`}
 						>
 							{project.name}
 						</h3>
 						{#if ready}
 							<span
-								class="text-white font-['Space_Mono'] text-md sm:text-lg px-2 font-bold text-center mt-2 sm:mt-0"
+								class="text-md mt-2 px-2 text-center font-['Space_Mono'] font-bold text-white sm:mt-0 sm:text-lg"
 								in:fly={{ y: 50, easing: cubicOut, delay: 300 }}
 							>
 								{getDateRange()}
@@ -78,10 +78,10 @@
 				</div>
 			</div>
 		{:else}
-			<div class="flex flex-col flex-grow w-full items-center justify-center">
+			<div class="flex w-full flex-grow flex-col items-center justify-center">
 				{#if ready}
 					<a
-						class="origin-top py-1 sm:py-2 project-title-component projects-list-item group flex flex-grow flex-row w-full items-center px-4 sm:px-8 rounded-badge duration-300 transition-all hover:shadow-md hover:-translate-y-2"
+						class="project-title-component projects-list-item rounded-badge group flex w-full flex-grow origin-top flex-row items-center px-4 py-1 transition-all duration-300 hover:-translate-y-2 hover:shadow-md sm:px-8 sm:py-2"
 						style:background-color={project.colourset?.main?.hex || 'black'}
 						href={`/projects/${project.slug}`}
 						in:scale={{
@@ -92,17 +92,17 @@
 						}}
 					>
 						<span
-							class="text-white font-['Space_Mono'] text-lg w-10 px-2 break-words font-bold hidden sm:inline"
+							class="hidden w-10 break-words px-2 font-['Space_Mono'] text-lg font-bold text-white sm:inline"
 						>
 							{getYearFromDate(project.start_date)}
 						</span>
 						<span
-							class="text-white font-['Space_Mono'] text-4xl w-10 px-2 font-bold hidden sm:inline"
+							class="hidden w-10 px-2 font-['Space_Mono'] text-4xl font-bold text-white sm:inline"
 						>
 							/
 						</span>
 						<h3
-							class="w-full sm:w-auto group-hover:text-white transition-colors duration-300 sm:line-clamp-1 sm:text-[3rem] sm:leading-[4.5rem] text-2xl leading-7 sm:text-left text-center"
+							class="w-full text-center text-2xl leading-7 transition-colors duration-300 group-hover:text-white sm:line-clamp-1 sm:w-auto sm:text-left sm:text-[3rem] sm:leading-[4.5rem]"
 							style={`view-transition-name: title-${project.slug}`}
 						>
 							{project.name}

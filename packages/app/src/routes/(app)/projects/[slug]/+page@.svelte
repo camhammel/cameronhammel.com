@@ -1,39 +1,39 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
-	import IntersectionObserver from 'svelte-intersection-observer';
+import { onMount } from 'svelte';
+import { fade, fly } from 'svelte/transition';
+import IntersectionObserver from 'svelte-intersection-observer';
 
-	import ProjectTitle from '../../../../components/ProjectTitle.svelte';
-	import ProjectSection from '../../../../components/ProjectSection.svelte';
-	import ProjectQuote from '../../../../components/ProjectQuote.svelte';
+import ProjectTitle from '../../../../components/ProjectTitle.svelte';
+import ProjectSection from '../../../../components/ProjectSection.svelte';
+import ProjectQuote from '../../../../components/ProjectQuote.svelte';
 
-	import { urlFor } from '$lib/sanity/client';
-	import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
-	import { cubicOut } from 'svelte/easing';
-	import ProjectSidebar from '../../../../components/ProjectSidebar.svelte';
+import { urlFor } from '$lib/sanity/client';
+import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
+import { cubicOut } from 'svelte/easing';
+import ProjectSidebar from '../../../../components/ProjectSidebar.svelte';
 
-	let ready = false;
+let ready = false;
 
-	onMount(() => {
-		ready = true;
-	});
+onMount(() => {
+	ready = true;
+});
 
-	export let data;
-	$: ({ project } = data);
-	$: colourset = project?.colourset || {
-		main: { hex: '#000' },
-		light: { hex: '#000' },
-		lighter: { hex: '#000' },
-		dark: { hex: '#000' }
-	};
+export let data;
+$: ({ project } = data);
+$: colourset = project?.colourset || {
+	main: { hex: '#000' },
+	light: { hex: '#000' },
+	lighter: { hex: '#000' },
+	dark: { hex: '#000' }
+};
 
-	let sectionNode: HTMLElement;
-	let quotesNode: HTMLElement;
-	let techStackNode: HTMLElement;
+let sectionNode: HTMLElement;
+let quotesNode: HTMLElement;
+let techStackNode: HTMLElement;
 
-	let sectionIntersecting = false;
-	let quotesIntersecting = false;
-	let techStackIntersecting = false;
+let sectionIntersecting = false;
+let quotesIntersecting = false;
+let techStackIntersecting = false;
 </script>
 
 <div
@@ -43,15 +43,15 @@
 		.hex};"
 >
 	{#if project}
-		<ProjectTitle {project} />
+		<ProjectTitle project={project} />
 		{#if ready}
 			<div
-				class="-mb-12 bg-white rounded-3xl p-4 z-10 bottom-12 relative gap-4 flex-1"
+				class="relative bottom-12 z-10 -mb-12 flex-1 gap-4 rounded-3xl bg-white p-4"
 				transition:fly={{ duration: 500, delay: 200, y: 100, easing: cubicOut, opacity: 1 }}
 			>
-				<div class="max-w-screen-2xl mx-auto col-span-3">
+				<div class="col-span-3 mx-auto max-w-screen-2xl">
 					{#if project.hero_banner && ready}
-						<div class="flex justify-center flex-row">
+						<div class="flex flex-row justify-center">
 							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
 						</div>
 					{/if}
@@ -63,12 +63,12 @@
 						>
 							<div id="project-tech_stack" bind:this={techStackNode}>
 								{#if project.tech_stack?.length}
-									<ProjectTechStack {project} />
+									<ProjectTechStack project={project} />
 								{/if}
 							</div>
 						</IntersectionObserver>
 						<div class="m-4 grid grid-cols-4 gap-4">
-							<div class="sm:col-span-3 col-span-4 bg-[#fff] rounded-md py-4 px-8">
+							<div class="col-span-4 rounded-md bg-[#fff] px-8 py-4 sm:col-span-3">
 								{#if project.sections?.length}
 									<IntersectionObserver
 										element={sectionNode}
@@ -77,7 +77,7 @@
 									>
 										<section id="project-sections" bind:this={sectionNode}>
 											{#each project.sections as section, index}
-												<ProjectSection {section} {index} />
+												<ProjectSection section={section} index={index} />
 											{/each}
 										</section>
 									</IntersectionObserver>
@@ -91,11 +91,11 @@
 										>
 											<div
 												id="project-quotes"
-												class="carousel carousel-center rounded-box gap-8 justify-center flex-wrap sm:flex-nowrap"
+												class="carousel carousel-center rounded-box flex-wrap justify-center gap-8 sm:flex-nowrap"
 												bind:this={quotesNode}
 											>
 												{#each project.quotes as quote}
-													<ProjectQuote {quote} />
+													<ProjectQuote quote={quote} />
 												{/each}
 											</div>
 										</IntersectionObserver>
@@ -103,7 +103,7 @@
 								</section>
 							</div>
 							<ProjectSidebar
-								{project}
+								project={project}
 								projectIntersectionElements={{
 									'project-tech_stack': {
 										intersecting: techStackIntersecting,

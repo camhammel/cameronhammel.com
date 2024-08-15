@@ -1,25 +1,25 @@
 <script lang="ts">
-	import type { Quote } from '$lib/types/project';
-	import { PortableText } from '@portabletext/svelte';
-	import QuoteIcon from '../svg/quote.svelte';
-	import CustomMark from './blocks/CustomMark.svelte';
+import type { Quote } from '$lib/types/project';
+import { PortableText } from '@portabletext/svelte';
+import QuoteIcon from '../svg/quote.svelte';
+import CustomMark from './blocks/CustomMark.svelte';
 
-	export let quote: Quote;
+export let quote: Quote;
 </script>
 
-<div class="carousel-item sm:w-2/5 w-full" id="quote-{quote._id}">
+<div class="carousel-item w-full sm:w-2/5" id="quote-{quote._id}">
 	<div
-		class="flex flex-col p-8 gap-4 mt-6 rounded-md bg-gradient-to-b from-primary-light to-primary-lighter"
+		class="from-primary-light to-primary-lighter mt-6 flex flex-col gap-4 rounded-md bg-gradient-to-b p-8"
 	>
 		{#if quote}
-			<div class="w-16 h-16 rotate-180 text-primary">
+			<div class="text-primary h-16 w-16 rotate-180">
 				<QuoteIcon />
 			</div>
-			<p class="flex-1 flex py-4 italic font-medium text-neutral-800">
+			<p class="flex flex-1 py-4 font-medium italic text-neutral-800">
 				<PortableText value={quote.quote} components={{ marks: { highlight: CustomMark } }} />
 			</p>
-			<div class="border-t-2 border-neutral-700 pt-4 w-full flex">
-				<caption class="text-left font-semibold text-primary">
+			<div class="flex w-full border-t-2 border-neutral-700 pt-4">
+				<caption class="text-primary text-left font-semibold">
 					{quote.author}
 				</caption>
 			</div>

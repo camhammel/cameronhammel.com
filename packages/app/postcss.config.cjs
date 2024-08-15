@@ -3,5 +3,6 @@ module.exports = {
 		require('postcss-hover-media-feature'),
 		require('autoprefixer'), 
 		require('tailwindcss'), 
-		require('tailwindcss/nesting')],
+		require('tailwindcss/nesting')
+	],
 };

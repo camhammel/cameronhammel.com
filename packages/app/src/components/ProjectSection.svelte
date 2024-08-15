@@ -1,45 +1,45 @@
 <script lang="ts">
-	import { DefaultListItem, PortableText } from '@portabletext/svelte';
-	import { urlFor } from '$lib//sanity/client';
-	import { fly } from 'svelte/transition';
-	import type { Section } from '$lib/types/project';
-	import { cubicOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
+import { DefaultListItem, PortableText } from '@portabletext/svelte';
+import { urlFor } from '$lib//sanity/client';
+import { fly } from 'svelte/transition';
+import type { Section } from '$lib/types/project';
+import { cubicOut } from 'svelte/easing';
+import { onMount } from 'svelte';
 
-	export let section: Section;
-	export let index: number = 0;
+export let section: Section;
+export let index: number = 0;
 
-	let containerClass =
-		'my-4 flex flex-1 flex-col items-center ' +
-		(section?.image_placement === 'left'
-			? 'sm:flex-row justify-between lg:gap-24 sm:gap-8 gap-4'
-			: section?.image_placement === 'right'
-				? 'sm:flex-row-reverse justify-between lg:gap-24 sm:gap-8 gap-4'
-				: 'gap-2');
+let containerClass =
+	'my-4 flex flex-1 flex-col items-center ' +
+	(section?.image_placement === 'left'
+		? 'sm:flex-row justify-between lg:gap-24 sm:gap-8 gap-4'
+		: section?.image_placement === 'right'
+			? 'sm:flex-row-reverse justify-between lg:gap-24 sm:gap-8 gap-4'
+			: 'gap-2');
 
-	let textContainerClass =
-		section?.image_placement === 'left'
-			? 'sm:items-start justify-center flex flex-1 flex-col sm:text-left text-center'
-			: section?.image_placement === 'right'
-				? 'sm:items-end justify-center flex flex-1 flex-col sm:text-right text-center'
-				: 'sm:items-center justify-center flex flex-1 flex-col text-center';
+let textContainerClass =
+	section?.image_placement === 'left'
+		? 'sm:items-start justify-center flex flex-1 flex-col sm:text-left text-center'
+		: section?.image_placement === 'right'
+			? 'sm:items-end justify-center flex flex-1 flex-col sm:text-right text-center'
+			: 'sm:items-center justify-center flex flex-1 flex-col text-center';
 
-	let ready = false;
+let ready = false;
 
-	onMount(() => {
-		ready = true;
-	});
-	$: flyOptions = {
-		duration: 500,
-		delay: 400 + index * 150,
-		easing: cubicOut,
-		opacity: 0,
-		...(section?.image_placement === 'left'
-			? { x: -100 }
-			: section.image_placement === 'right'
-				? { x: 100 }
-				: { y: 100 })
-	};
+onMount(() => {
+	ready = true;
+});
+$: flyOptions = {
+	duration: 500,
+	delay: 400 + index * 150,
+	easing: cubicOut,
+	opacity: 0,
+	...(section?.image_placement === 'left'
+		? { x: -100 }
+		: section.image_placement === 'right'
+			? { x: 100 }
+			: { y: 100 })
+};
 </script>
 
 <div>
@@ -54,14 +54,14 @@
 						class:sm:justify-start={section?.image_placement === 'right'}
 					>
 						<img
-							class="rounded-md max-w-[70%]"
+							class="max-w-[70%] rounded-md"
 							src={urlFor(section.image)?.url()}
 							alt="Project Section"
 						/>
 					</div>
 				{/if}
 				<div class={textContainerClass} in:fly={flyOptions}>
-					<div class="max-w-full mx-auto sm:mx-0">
+					<div class="mx-auto max-w-full sm:mx-0">
 						<PortableText
 							value={section.content}
 							components={{ listItem: { normal: DefaultListItem, bullet: DefaultListItem } }}

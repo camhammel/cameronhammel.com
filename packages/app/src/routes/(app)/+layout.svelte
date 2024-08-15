@@ -1,4 +1,4 @@
-<div class="w-full h-screen">
+<div class="h-screen w-full">
 	<slot></slot>
 </div>
 <SvelteSeo
