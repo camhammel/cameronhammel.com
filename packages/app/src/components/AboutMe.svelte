@@ -49,11 +49,11 @@ onMount(() => {
 			class="flex flex-grow flex-col-reverse items-start justify-evenly sm:flex-row sm:items-center"
 		>
 			<div class="mx-auto my-1 flex flex-col gap-2 sm:max-w-[50%]">
-				<h2
+				<h1
 					class="mx-auto text-center text-[clamp(24px,10svh,48px)] leading-none tracking-normal text-white [text-transform:none;] sm:mx-0 sm:text-start sm:text-8xl"
 				>
 					Hi, I'm<br />Cameron.
-				</h2>
+				</h1>
 				<p class="mx-auto max-w-[80%] font-medium text-white sm:mx-0 sm:max-w-xl sm:text-xl">
 					I'm a software engineer based in Toronto 🇨🇦
 					<br /> I build cutting edge web and mobile applications using modern frameworks such as
