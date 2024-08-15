@@ -49,7 +49,7 @@
 			class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-evenly flex-grow"
 		>
 			<h2
-				class="text-5xl tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto my-4"
+				class="text-[clamp(24px,10svh,48px)] leading-none tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto sm:my-4 my-1"
 			>
 				Hi, I'm<br />Cameron.
 			</h2>
