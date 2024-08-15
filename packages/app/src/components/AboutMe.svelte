@@ -49,12 +49,12 @@
 			class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-evenly flex-grow"
 		>
 			<h2
-				class="text-[clamp(24px,10svh,48px)] leading-none tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto sm:my-4 my-1"
+				class="text-[clamp(24px,10svh,48px)] leading-none tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto my-1"
 			>
 				Hi, I'm<br />Cameron.
 			</h2>
 			<p
-				class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip mx-auto max-w-64 w-1/3 xs:w-1/2 sm:w-auto"
+				class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip mx-auto max-w-64 w-1/3 xs:w-1/2 sm:w-auto my-4 sm:my-0"
 			>
 				{#if profileImage}
 					<img
