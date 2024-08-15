@@ -31,7 +31,7 @@
 	});
 	$: flyOptions = {
 		duration: 500,
-		delay: 200 + index * 150,
+		delay: 400 + index * 150,
 		easing: cubicOut,
 		opacity: 0,
 		...(section?.image_placement === 'left'
