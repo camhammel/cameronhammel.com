@@ -81,8 +81,7 @@ const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
 			<div class="flex w-full flex-grow flex-col items-center justify-center">
 				{#if ready}
 					<a
-						class="project-title-component projects-list-item rounded-badge group flex w-full flex-grow origin-top flex-row items-center px-4 py-1 transition-all duration-300 hover:-translate-y-2 hover:shadow-md sm:px-8 sm:py-2"
-						style:background-color={project.colourset?.main?.hex || 'black'}
+						class="bg-primary project-title-component projects-list-item group flex w-full flex-grow origin-top flex-row items-center rounded-3xl bg-black px-4 py-1 transition-all duration-300 hover:-translate-y-2 hover:shadow-md sm:px-8 sm:py-2"
 						href={`/projects/${project.slug}`}
 						in:scale={{
 							delay: isFirstPage ? 50 + 100 * index : 0,
@@ -92,7 +91,7 @@ const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
 						}}
 					>
 						<span
-							class="hidden w-10 break-words px-2 font-['Space_Mono'] text-lg font-bold text-white sm:inline"
+							class="hidden w-fit px-2 font-['Space_Mono'] text-lg font-bold text-white sm:inline"
 						>
 							{getYearFromDate(project.start_date)}
 						</span>
@@ -113,3 +112,13 @@ const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
 		{/if}
 	</div>
 {/if}
+<svelte:head>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet"
+	/>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>

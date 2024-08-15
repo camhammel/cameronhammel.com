@@ -32,22 +32,20 @@ afterNavigate((navigation) => {
 		id="fp-experience"
 		class="flex w-full flex-col items-center justify-center bg-white px-8 py-32 sm:snap-center"
 	>
-		<div>
-			{#if data.projects?.length}
-				<h2 class="overflow-x-hidden text-center text-[clamp(1.5rem,4vw,2rem)] sm:text-left">
-					Experience
-				</h2>
-				<ul class="grid grid-flow-row auto-rows-[1fr] justify-evenly gap-4">
-					{#each data.projects as project, index}
-						<li class="h-full w-full">
-							<ProjectTitle project={project} index={index} />
-						</li>
-					{/each}
-				</ul>
-			{:else}
-				<p>No projects found.</p>
-			{/if}
-		</div>
+		{#if data.projects?.length}
+			<h2 class="overflow-x-hidden text-center text-[clamp(1.5rem,4vw,2rem)] sm:text-left">
+				Experience
+			</h2>
+			<ul class="grid w-full auto-cols-fr grid-flow-row auto-rows-fr justify-evenly gap-4">
+				{#each data.projects as project, index}
+					<li class="mx-auto h-full w-full max-w-7xl">
+						<ProjectTitle project={project} index={index} />
+					</li>
+				{/each}
+			</ul>
+		{:else}
+			<p>No projects found.</p>
+		{/if}
 	</div>
 </div>
 

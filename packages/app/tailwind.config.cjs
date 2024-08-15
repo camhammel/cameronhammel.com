@@ -5,7 +5,7 @@ const radialGradientPlugin = plugin(
     matchUtilities(
       {
         // map to bg-radient-[*]
-        'bg-radient': value => ({
+        'bg-gradient': value => ({
           'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`,
         }),
       },

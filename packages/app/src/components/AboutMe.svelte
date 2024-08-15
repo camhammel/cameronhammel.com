@@ -25,8 +25,8 @@ onMount(() => {
 <div id="fp-about" class="flex min-h-svh w-full flex-col bg-white sm:snap-start">
 	<div class="flex flex-row items-center justify-center overflow-x-hidden bg-white sm:justify-end">
 		{#if mounted}
-			<h1
-				class="p-2 text-center sm:p-6 sm:text-end"
+			<div
+				class="p-2 sm:p-6"
 				in:fly={{
 					easing: cubicOut,
 					delay: 150,
@@ -35,15 +35,15 @@ onMount(() => {
 				}}
 			>
 				{#if isLink}
-					<a href="/" class="inline-block w-80 sm:w-[458px]"> <HeaderLogo /> </a>
+					<a href="/" class="inline-block w-80 sm:w-[458px]"><HeaderLogo /></a>
 				{:else}
 					<div class="inline-block w-80 sm:w-[458px]"><HeaderLogo /></div>
 				{/if}
-			</h1>
+			</div>
 		{/if}
 	</div>
 	<div
-		class="bg-radient-ellipse-tl relative mx-4 mb-4 flex flex-1 flex-col justify-between gap-4 rounded-3xl from-[#6EE2F5] from-20% to-[#6454F0] to-80% px-4 pb-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
+		class="bg-gradient-ellipse-tl from-primary-lighter to-primary relative mx-4 mb-4 flex flex-1 flex-col justify-between gap-4 rounded-3xl from-20% to-80% px-4 pb-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
 	>
 		<div
 			class="flex flex-grow flex-col-reverse items-start justify-evenly sm:flex-row sm:items-center"
