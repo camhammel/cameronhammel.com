@@ -87,19 +87,17 @@
 				</p>
 			</div>
 			<div class="glass-card col-span-full justify-center items-center flex overflow-x-hidden">
-				<span>
-					<p
-						class="sm:text-lg font-medium text-center text-white animate-infinite-scroll whitespace-nowrap"
-					>
-						{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
-					</p>
-					<p
-						class="sm:text-lg font-medium text-center text-white animate-infinite-scroll whitespace-nowrap"
-						aria-hidden
-					>
-						{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
-					</p>
-				</span>
+				<p
+					class="sm:text-lg font-medium text-center text-white animate-infinite-scroll whitespace-nowrap"
+				>
+					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
+				</p>
+				<p
+					class="sm:text-lg font-medium text-center text-white animate-infinite-scroll whitespace-nowrap"
+					aria-hidden
+				>
+					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
+				</p>
 			</div>
 		</div>
 		<div
