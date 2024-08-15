@@ -54,7 +54,7 @@ onMount(() => {
 				>
 					Hi, I'm<br />Cameron.
 				</h2>
-				<p class="mx-auto max-w-[75%] font-medium text-white sm:mx-0 sm:max-w-none sm:text-lg">
+				<p class="mx-auto max-w-[80%] font-medium text-white sm:mx-0 sm:max-w-none sm:text-lg">
 					I'm a software engineer based in Toronto 🇨🇦
 					<br /> I build cutting edge web and mobile applications using modern frameworks such as
 					<b>React-Native</b>, <b>Vue</b>, and <b>SvelteKit</b>.
@@ -87,11 +87,7 @@ onMount(() => {
 				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat Here (TODO)</p>
 			</div>
 			<div class="glass-card col-span-full flex items-center justify-center sm:col-span-4">
-				<p class="text-center font-medium text-white sm:text-lg">
-					I'm a software engineer based in Toronto, Canada. <br /><br />
-					I build cutting edge web and mobile applications using modern frameworks such as
-					<b>React-Native</b>, <b>SvelteKit</b>, and <b>Vue</b>.
-				</p>
+				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat 2 Here (TODO)</p>
 			</div>
 			<div class="glass-card col-span-full flex items-center justify-center overflow-x-hidden">
 				<p
