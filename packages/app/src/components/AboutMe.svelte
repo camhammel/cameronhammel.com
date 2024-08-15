@@ -100,7 +100,9 @@
 				</p>
 			</div>
 		</div>
-		<div class="flex self-center mt-4 sm:mt-0 sm:self-end text-white animate-bounce">
+		<div
+			class="flex self-center mt-4 sm:mt-0 sm:self-end 3xl:absolute 3xl:bottom-12 3xl:right-4 text-white animate-bounce"
+		>
 			<div class="-rotate-90 aspect-square sm:w-12 w-8"><Arrow /></div>
 		</div>
 	</div>
