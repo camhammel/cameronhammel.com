@@ -52,6 +52,20 @@
 			>
 				Hi, I'm<br />Cameron.
 			</h2>
+			<p
+				class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip mx-auto max-w-64 w-1/2 sm:w-auto"
+			>
+				{#if profileImage}
+					<img
+						src={urlFor(profileImage)?.width(256).url()}
+						alt="Project Section"
+						height="256"
+						width="256"
+					/>
+				{:else}
+					<p>👋</p>
+				{/if}
+			</p>
 			<!-- <h2
 				class="text-4xl tracking-normal max-w-[50%] sm:text-8xl text-start text-white [text-transform:none;]"
 			>
@@ -61,21 +75,8 @@
 		<div
 			class="grid xs:grid-cols-3 sm:grid-cols-6 grid-cols-2 sm:gap-4 gap-2 px-4 max-w-screen-2xl mx-auto"
 		>
-			<div class="glass-card col-span-2 sm:row-span-2 justify-center items-center flex">
-				<p
-					class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip w-2/3 max-w-32 sm:max-w-64 max-h-64"
-				>
-					{#if profileImage}
-						<img
-							src={urlFor(profileImage)?.width(256).url()}
-							alt="Project Section"
-							height="256"
-							width="256"
-						/>
-					{:else}
-						<p>👋</p>
-					{/if}
-				</p>
+			<div class="glass-card flex col-span-2 sm:row-span-2 justify-center items-center">
+				<p class="sm:text-lg font-medium text-center text-white block aspect-square">👋</p>
 			</div>
 			<div class="glass-card col-span-2 sm:col-span-4 justify-center items-center flex">
 				<p class="sm:text-lg font-medium text-center text-white">GitHub Stat Here (TODO)</p>

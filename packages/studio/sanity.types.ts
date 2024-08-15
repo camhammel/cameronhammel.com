@@ -359,7 +359,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ../app/src/routes/(app)/+page.server.ts
 // Variable: allProjectQuery
-// Query: *[_type == "project"]{        slug,        name,        colourset->,        hero_banner,        summary,        start_date,		end_date,        tech_stack->,        sections->,        quotes->    }
+// Query: *[_type == "project"]{        slug,        name,        colourset->,        start_date,		end_date,    }
 export type AllProjectQueryResult = Array<{
   slug: string
   name: string
@@ -374,91 +374,8 @@ export type AllProjectQueryResult = Array<{
     main: Color
     dark: Color
   }
-  hero_banner: {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  summary: string
   start_date: string
   end_date: string | null
-  tech_stack: Array<{
-    _id: string
-    _type: 'techstackitem'
-    _createdAt: string
-    _updatedAt: string
-    _rev: string
-    name: string
-  }> | null
-  sections: Array<{
-    _id: string
-    _type: 'section'
-    _createdAt: string
-    _updatedAt: string
-    _rev: string
-    image?: {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-    }
-    image_placement?: 'center' | 'left' | 'right'
-    content?: Array<{
-      children?: Array<{
-        marks?: Array<string>
-        text?: string
-        _type: 'span'
-        _key: string
-      }>
-      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
-      listItem?: 'bullet' | 'number'
-      markDefs?: Array<{
-        href?: string
-        _type: 'link'
-        _key: string
-      }>
-      level?: number
-      _type: 'Content Item'
-      _key: string
-    }>
-  }> | null
-  quotes: Array<{
-    _id: string
-    _type: 'quote'
-    _createdAt: string
-    _updatedAt: string
-    _rev: string
-    quote?: Array<{
-      children?: Array<{
-        marks?: Array<string>
-        text?: string
-        _type: 'span'
-        _key: string
-      }>
-      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
-      listItem?: 'bullet' | 'number'
-      markDefs?: Array<{
-        href?: string
-        _type: 'link'
-        _key: string
-      }>
-      level?: number
-      _type: 'block'
-      _key: string
-    }>
-    author?: string
-  }> | null
 }>
 // Variable: portfolioQuery
 // Query: *[_type == "portfolio"]{		profile_image,	}
@@ -480,6 +397,7 @@ export type PortfolioQueryResult = Array<{
 export type TechStackQueryResult = Array<{
   name: string
 }>
+
 // Source: ../app/src/routes/(app)/projects/[slug]/+page.server.ts
 // Variable: projectQuery
 // Query: *[_type == "project" && slug == $slug]{        slug,        name,        colourset->,        hero_banner,        summary,		industry,		website,		company_image,        start_date,		end_date,		job_title,        tech_stack[]->,        sections[]->,        quotes[]->,    }
