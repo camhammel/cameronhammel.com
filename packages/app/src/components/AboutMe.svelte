@@ -54,7 +54,7 @@ onMount(() => {
 				>
 					Hi, I'm<br />Cameron.
 				</h2>
-				<p class="mx-auto max-w-[80%] font-medium text-white sm:mx-0 sm:max-w-none sm:text-lg">
+				<p class="mx-auto max-w-[80%] font-medium text-white sm:mx-0 sm:max-w-xl sm:text-lg">
 					I'm a software engineer based in Toronto 🇨🇦
 					<br /> I build cutting edge web and mobile applications using modern frameworks such as
 					<b>React-Native</b>, <b>Vue</b>, and <b>SvelteKit</b>.
