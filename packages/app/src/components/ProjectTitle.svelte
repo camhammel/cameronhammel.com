@@ -5,6 +5,8 @@
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import Arrow from '../svg/arrow.svelte';
+	import { beforeNavigate } from '$app/navigation';
+	import { lastRoute } from '$lib/stores/lastRoute';
 
 	export let project: Pick<Project, 'name' | 'slug' | 'start_date' | 'end_date' | 'colourset'>;
 	export let index = -1;
@@ -12,8 +14,16 @@
 	let ready = false;
 	let isFirstPage = true;
 
+	{
+		$lastRoute;
+	}
+
+	beforeNavigate(({ from }) => {
+		$lastRoute = from?.url.pathname || '/';
+	});
+
 	onMount(() => {
-		// isFirstPage = !window?.navigation?.canGoBack;
+		isFirstPage = $lastRoute === '/';
 
 		ready = true;
 	});
