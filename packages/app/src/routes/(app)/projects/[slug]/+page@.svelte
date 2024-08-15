@@ -27,13 +27,47 @@ $: colourset = project?.colourset || {
 	dark: { hex: '#000' }
 };
 
-let sectionNode: HTMLElement;
+let sectionNodes: HTMLElement[] = [];
 let quotesNode: HTMLElement;
 let techStackNode: HTMLElement;
 
-let sectionIntersecting = false;
+let sectionsIntersecting = [false];
 let quotesIntersecting = false;
 let techStackIntersecting = false;
+
+let projectIntersectionElements: Record<
+	string,
+	{ intersecting: boolean; title: string; show: boolean }
+>;
+// @ts-ignore
+$: projectIntersectionElements = Object.assign(
+	Object.assign(
+		{
+			'project-tech_stack': {
+				intersecting: techStackIntersecting,
+				title: 'Tech Stack',
+				show: !!project?.tech_stack?.length
+			}
+		},
+		project?.sections?.length &&
+			project.sections.reduce((acc, section, index) => {
+				// @ts-ignore
+				acc[`project-${section.title}`] = {
+					intersecting: sectionsIntersecting[index],
+					title: section.title,
+					show: true
+				};
+				return acc;
+			}, {})
+	),
+	{
+		'project-quotes': {
+			intersecting: quotesIntersecting,
+			title: 'Quotes',
+			show: !!project?.quotes?.length
+		}
+	}
+);
 </script>
 
 <div
@@ -70,17 +104,17 @@ let techStackIntersecting = false;
 						<div class="m-4 grid grid-cols-4 gap-4">
 							<div class="col-span-4 rounded-md bg-[#fff] px-8 py-4 sm:col-span-3">
 								{#if project.sections?.length}
-									<IntersectionObserver
-										element={sectionNode}
-										bind:intersecting={sectionIntersecting}
-										threshold={0.7}
-									>
-										<section id="project-sections" bind:this={sectionNode}>
-											{#each project.sections as section, index}
+									{#each project.sections as section, index}
+										<IntersectionObserver
+											element={sectionNodes[index]}
+											bind:intersecting={sectionsIntersecting[index]}
+											threshold={0.7}
+										>
+											<section id={`project-${section.title}`} bind:this={sectionNodes[index]}>
 												<ProjectSection section={section} index={index} />
-											{/each}
-										</section>
-									</IntersectionObserver>
+											</section>
+										</IntersectionObserver>
+									{/each}
 								{/if}
 								<section>
 									{#if project.quotes?.length}
@@ -104,23 +138,7 @@ let techStackIntersecting = false;
 							</div>
 							<ProjectSidebar
 								project={project}
-								projectIntersectionElements={{
-									'project-tech_stack': {
-										intersecting: techStackIntersecting,
-										title: 'Tech Stack',
-										show: !!project.tech_stack?.length
-									},
-									'project-sections': {
-										intersecting: sectionIntersecting,
-										title: 'Page Sections',
-										show: !!project.sections?.length
-									},
-									'project-quotes': {
-										intersecting: quotesIntersecting,
-										title: 'Quotes',
-										show: !!project.quotes?.length
-									}
-								}}
+								projectIntersectionElements={projectIntersectionElements}
 							/>
 						</div>
 					</div>

@@ -1,32 +1,15 @@
 <script lang="ts">
 import { urlFor } from '$lib/sanity/client';
-import type {
-	Project,
-	ProjectIntersectionElement,
-	ProjectIntersectionElements
-} from '$lib/types/project';
+import type { Project, ProjectIntersectionElement } from '$lib/types/project';
 import { fade } from 'svelte/transition';
 
 export let project: Project;
 
-export let projectIntersectionElements: {
-	[key in keyof ProjectIntersectionElements]: ProjectIntersectionElement;
-} = {
-	'project-tech_stack': {
-		title: Boolean(project?.tech_stack?.length) && 'Tech Stack',
-		intersecting: false
-	},
-	'project-sections': {
-		title: Boolean(project?.sections?.length) && 'Sections',
-		intersecting: false
-	},
-	'project-quotes': {
-		title: Boolean(project?.quotes?.length) && 'Quotes',
-		intersecting: false
-	}
-};
+export let projectIntersectionElements = {};
 
-$: intersectionElements = Object.entries(projectIntersectionElements);
+$: intersectionElements = Object.entries(
+	projectIntersectionElements as unknown as Record<string, ProjectIntersectionElement>
+);
 </script>
 
 <aside class="project-sidebar sticky top-3 col-span-4 grid h-fit gap-4 sm:col-span-1">
