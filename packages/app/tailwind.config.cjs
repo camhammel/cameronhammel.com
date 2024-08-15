@@ -55,17 +55,17 @@ const config = {
         'primary-lighter': 'var(--color-primary-lighter)',
         'primary-dark': 'var(--color-primary-dark)',
         white: '#f8fafc'
-      }
+      },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 45s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        }
+      }     
     },
-    animation: {
-      'infinite-scroll': 'infinite-scroll 45s linear infinite',
-    },
-    keyframes: {
-      'infinite-scroll': {
-        from: { transform: 'translateX(0)' },
-        to: { transform: 'translateX(-100%)' },
-      }
-    }     
   },
 
   plugins: [

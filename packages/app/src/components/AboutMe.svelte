@@ -6,6 +6,7 @@
 	import { cubicOut } from 'svelte/easing';
 	import { urlFor } from '$lib/sanity/client';
 	import type { SanityAsset } from '@sanity/image-url/lib/types/types';
+	import Arrow from '../svg/arrow.svelte';
 
 	export let profileImage: SanityAsset | undefined = undefined;
 	export let techStackItems: { name: string }[] = [];
@@ -42,18 +43,18 @@
 		{/if}
 	</div>
 	<div
-		class="bg-radient-ellipse-tl from-[#6EE2F5] from-20% to-[#6454F0] to-80% flex flex-col flex-1 mx-4 mb-4 sm:mx-6 sm:mb-6 rounded-3xl px-4 pb-8 sm:pt-8 justify-between gap-4 sm:gap-8"
+		class="relative bg-radient-ellipse-tl from-[#6EE2F5] from-20% to-[#6454F0] to-80% flex flex-col flex-1 mx-4 mb-4 sm:mx-6 sm:mb-6 rounded-3xl px-4 pb-8 sm:pt-8 justify-between gap-4 sm:gap-8"
 	>
 		<div
 			class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-evenly flex-grow"
 		>
 			<h2
-				class="text-6xl tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto my-4"
+				class="text-5xl tracking-normal sm:text-8xl text-start text-white [text-transform:none;] mx-auto my-4"
 			>
 				Hi, I'm<br />Cameron.
 			</h2>
 			<p
-				class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip mx-auto max-w-64 w-1/2 sm:w-auto"
+				class="sm:text-lg font-medium text-center text-white block aspect-square border-2 border-solid border-white shadow-sm rounded-full overflow-clip mx-auto max-w-64 w-1/3 xs:w-1/2 sm:w-auto"
 			>
 				{#if profileImage}
 					<img
@@ -63,20 +64,17 @@
 						width="256"
 					/>
 				{:else}
-					<p>👋</p>
+					<p class="text-7xl">👋</p>
 				{/if}
 			</p>
-			<!-- <h2
-				class="text-4xl tracking-normal max-w-[50%] sm:text-8xl text-start text-white [text-transform:none;]"
-			>
-				(WIP)
-			</h2> -->
 		</div>
 		<div
 			class="grid xs:grid-cols-3 sm:grid-cols-6 grid-cols-2 sm:gap-4 gap-2 px-4 max-w-screen-2xl mx-auto"
 		>
 			<div class="glass-card flex col-span-2 sm:row-span-2 justify-center items-center">
-				<p class="sm:text-lg font-medium text-center text-white block aspect-square">👋</p>
+				<p class="text-4xl sm:text-7xl font-medium text-center text-white block aspect-square">
+					👋
+				</p>
 			</div>
 			<div class="glass-card col-span-2 sm:col-span-4 justify-center items-center flex">
 				<p class="sm:text-lg font-medium text-center text-white">GitHub Stat Here (TODO)</p>
@@ -101,6 +99,9 @@
 					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
 				</p>
 			</div>
+		</div>
+		<div class="flex self-center mt-4 sm:mt-0 sm:self-end text-white animate-bounce">
+			<div class="-rotate-90 aspect-square sm:w-12 w-8"><Arrow /></div>
 		</div>
 	</div>
 </div>
