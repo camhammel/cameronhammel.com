@@ -155,3 +155,11 @@ $: projectIntersectionElements = Object.assign(
 		/>
 	{/if}
 </div>
+<svelte:head>
+	<style>
+	html,
+	body {
+		scroll-behavior: smooth;
+	}
+	</style>
+</svelte:head>
