@@ -71,6 +71,9 @@ const config = {
       fontSize: {
         '2xs': '11px',
         '3xs': '10px',
+      },
+      dropShadow: {
+        'solid': '0 0 1px rgba(0, 0, 0, 1)',
       }
     },
   },

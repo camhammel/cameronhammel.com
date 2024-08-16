@@ -85,37 +85,37 @@ onMount(() => {
 				</p>
 			</div>
 			<div class="glass-card col-span-2 flex flex-col items-center gap-4 sm:col-span-4">
-				<p class="text-center text-xl font-medium text-white">This Site</p>
+				<h5 class="text-center uppercase text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square w-8 drop-shadow-lg"><SvelteIcon /></div>
+						<div class="aspect-square w-8"><SvelteIcon /></div>
 						<p class="text-white sm:font-medium">SvelteKit</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square font-sans text-2xl font-bold text-white drop-shadow-lg">
-							96
+						<div
+							class="drop-shadow-solid aspect-square font-sans text-2xl font-bold leading-none text-white"
+						>
+							98
 						</div>
 						<p class="text-white sm:font-medium">Lighthouse Score</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square w-8 drop-shadow-lg"><SanityIcon /></div>
+						<div class="aspect-square w-8"><SanityIcon /></div>
 						<p class="text-white sm:font-medium">Sanity CMS</p>
 					</div>
 				</div>
 			</div>
 			<div class="glass-card col-span-full flex items-center justify-center sm:col-span-4">
-				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat 2 Here (TODO)</p>
+				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat Here (TODO)</p>
 			</div>
-			<div class="glass-card col-span-full flex items-center justify-center overflow-x-hidden">
-				<p
-					class="animate-infinite-scroll whitespace-nowrap text-center font-medium text-white sm:text-lg"
-				>
+			<div class="glass-card col-span-full flex items-center justify-center overflow-x-clip">
+				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
 					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
 				</p>
-				<p
-					class="animate-infinite-scroll whitespace-nowrap text-center font-medium text-white sm:text-lg"
-					aria-hidden
-				>
+				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
+					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
+				</p>
+				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
 					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
 				</p>
 			</div>
