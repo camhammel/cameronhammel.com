@@ -43,37 +43,41 @@ onMount(() => {
 		{/if}
 	</div>
 	<div
-		class="bg-gradient-ellipse-tl from-primary-lighter to-primary relative mx-4 mb-4 flex flex-1 flex-col justify-between gap-4 rounded-3xl from-20% to-80% px-4 pb-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
+		class="bg-gradient-ellipse-tl from-primary-lighter to-primary relative mx-4 mb-4 flex flex-1 flex-col justify-evenly gap-4 rounded-3xl from-20% to-80% px-4 py-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
 	>
-		<div
-			class="flex flex-grow flex-col-reverse items-start justify-evenly sm:flex-row sm:items-center"
-		>
-			<div class="mx-auto my-1 flex flex-col gap-2 sm:max-w-[50%]">
-				<h1
-					class="mx-auto text-center text-[clamp(24px,10svh,48px)] leading-none tracking-normal text-white [text-transform:none;] sm:mx-0 sm:text-start sm:text-8xl"
-				>
-					Hi, I'm<br />Cameron.
-				</h1>
-				<p class="mx-auto max-w-[80%] font-medium text-white sm:mx-0 sm:max-w-xl sm:text-xl">
-					I'm a software engineer based in Toronto 🇨🇦
-					<br /> I build cutting edge web and mobile applications using modern frameworks such as
-					<b>React-Native</b>, <b>Vue</b>, and <b>SvelteKit</b>.
-				</p>
+		<div class="flex flex-col-reverse items-center sm:flex-row sm:justify-center">
+			<div class="my-1 flex flex-col items-end gap-2 self-end sm:flex-[3]">
+				<div class="flex flex-col items-center sm:items-start">
+					<h1
+						class="text-center text-[clamp(24px,10svh,48px)] leading-none tracking-normal text-white [text-transform:none;] sm:text-start sm:text-8xl"
+					>
+						Hi, I'm<br />Cameron.
+					</h1>
+					<p class="mt-4 max-w-[80%] font-medium text-white sm:max-w-xl sm:text-xl">
+						I'm a software engineer based in Toronto 🇨🇦
+						<br /> I build cutting edge web and mobile applications using modern frameworks such as
+						<b>React-Native</b>, <b>Vue</b>, and <b>SvelteKit</b>.
+					</p>
+				</div>
 			</div>
-			<p
-				class="xs:w-1/2 mx-auto my-4 block aspect-square w-1/3 max-w-64 overflow-clip rounded-full border-2 border-solid border-white text-center font-medium text-white shadow-sm sm:my-0 sm:w-auto sm:text-lg"
+			<div
+				class="my-4 flex flex-row justify-start self-center text-center font-medium text-white sm:my-0 sm:flex-[2]"
 			>
-				{#if profileImage}
-					<img
-						src={urlFor(profileImage)?.width(256).url()}
-						alt="Project Section"
-						height="256"
-						width="256"
-					/>
-				{:else}
-					<p class="text-7xl">👋</p>
-				{/if}
-			</p>
+				<div
+					class="aspect-square max-w-32 overflow-clip rounded-full border-2 border-solid border-white shadow-sm sm:max-w-64 sm:text-lg"
+				>
+					{#if profileImage}
+						<img
+							src={urlFor(profileImage)?.width(256).url()}
+							alt="Project Section"
+							height="256"
+							width="256"
+						/>
+					{:else}
+						<p class="text-7xl">👋</p>
+					{/if}
+				</div>
+			</div>
 		</div>
 		<div
 			class="xs:grid-cols-3 mx-auto grid max-w-screen-2xl grid-cols-2 gap-2 px-4 sm:grid-cols-6 sm:gap-4"

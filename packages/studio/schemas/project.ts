@@ -77,6 +77,7 @@ export default defineType({
           to: [{type: 'techstackitem'}],
         }),
       ],
+      validation: (Rule) => Rule.unique(),
     }),
     defineField({
       name: 'sections',

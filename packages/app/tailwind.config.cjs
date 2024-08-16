@@ -68,6 +68,10 @@ const config = {
       screens: {
         '3xl': '1700px',
       },
+      fontSize: {
+        '2xs': '11px',
+        '3xs': '10px',
+      }
     },
   },
 

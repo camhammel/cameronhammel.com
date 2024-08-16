@@ -89,7 +89,7 @@ export type Section = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  title?: string
+  title: string
   image?: {
     asset?: {
       _ref: string
@@ -458,7 +458,7 @@ export type ProjectQueryResult = Array<{
     _createdAt: string
     _updatedAt: string
     _rev: string
-    title?: string
+    title: string
     image?: {
       asset?: {
         _ref: string
