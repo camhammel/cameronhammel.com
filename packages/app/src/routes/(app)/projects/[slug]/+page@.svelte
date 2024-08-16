@@ -86,7 +86,11 @@ $: projectIntersectionElements = Object.assign(
 				<div class="col-span-3 mx-auto max-w-screen-2xl">
 					{#if project.hero_banner && ready}
 						<div class="flex flex-row justify-center">
-							<img src={urlFor(project.hero_banner)?.url()} class="rounded-2xl" alt="Hero Banner" />
+							<img
+								src={urlFor(project.hero_banner)?.format('webp').url()}
+								class="rounded-2xl"
+								alt="Hero Banner"
+							/>
 						</div>
 					{/if}
 					<div class="my-4">

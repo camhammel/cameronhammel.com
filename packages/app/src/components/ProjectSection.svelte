@@ -55,7 +55,7 @@ $: flyOptions = {
 					>
 						<img
 							class="max-w-[70%] rounded-md"
-							src={urlFor(section.image)?.url()}
+							src={urlFor(section.image)?.format('webp').url()}
 							alt="Project Section"
 						/>
 					</div>

@@ -66,7 +66,7 @@ onMount(() => {
 			>
 				{#if profileImage}
 					<img
-						src={urlFor(profileImage)?.width(256).url()}
+						src={urlFor(profileImage)?.width(256).auto('format').url()}
 						alt="Project Section"
 						height="256"
 						width="256"
