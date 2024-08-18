@@ -9,7 +9,11 @@ import type { SanityAsset } from '@sanity/image-url/lib/types/types';
 
 import Arrow from '../svg/arrow.svelte';
 import SvelteIcon from '../svg/svelte.svelte';
-import SanityIcon from '../svg/sanity.svelte';
+import SanityIcon from '../svg/sanity_type.svelte';
+import InstagramIcon from '../svg/instagram.svelte';
+import GitHubIcon from '../svg/github.svelte';
+import EmailIcon from '../svg/email.svelte';
+import LinkedinIcon from '../svg/linkedin.svelte';
 
 export let profileImage: SanityAsset | undefined = undefined;
 export let techStackItems: { name: string }[] = [];
@@ -84,30 +88,53 @@ onMount(() => {
 					👋
 				</p>
 			</div>
+			<div
+				class="glass-card col-span-full flex flex-row flex-wrap items-center justify-center gap-6 sm:col-span-2"
+			>
+				<a
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					href="https://instagram.com/cameron.hammel"
+					><InstagramIcon />
+				</a>
+				<a
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					href="https://github.com/camhammel"
+					><GitHubIcon />
+				</a>
+				<a
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					href="https://linkedin.com/in/cameron-hammel"
+					><LinkedinIcon />
+				</a>
+				<a
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					href="mailto:hello@cameronhammel.dev"
+					target="”_blank”"
+					rel="noopener"
+					><EmailIcon />
+				</a>
+			</div>
+			<div class="glass-card col-span-full flex items-center justify-center sm:col-span-2">
+				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat Here (TODO)</p>
+			</div>
 			<div class="glass-card col-span-2 flex flex-col items-center gap-4 sm:col-span-4">
 				<h5 class="text-center uppercase text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square w-8"><SvelteIcon /></div>
+						<div class="aspect-square w-6 text-white"><SvelteIcon /></div>
 						<p class="text-white sm:font-medium">SvelteKit</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div
-							class="drop-shadow-solid aspect-square font-sans text-2xl font-bold leading-none text-white"
-						>
-							98
-						</div>
+						<div class="aspect-square font-sans text-2xl font-bold leading-none text-white">98</div>
 						<p class="text-white sm:font-medium">Lighthouse Score</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square w-8"><SanityIcon /></div>
+						<div class="min-h-8 w-full text-white"><SanityIcon /></div>
 						<p class="text-white sm:font-medium">Sanity CMS</p>
 					</div>
 				</div>
 			</div>
-			<div class="glass-card col-span-full flex items-center justify-center sm:col-span-4">
-				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat Here (TODO)</p>
-			</div>
+
 			<div class="glass-card col-span-full flex items-center justify-center overflow-x-clip">
 				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
 					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
