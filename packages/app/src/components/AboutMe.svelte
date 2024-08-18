@@ -121,11 +121,13 @@ onMount(() => {
 				<h5 class="text-center text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square w-6 text-white"><SvelteIcon /></div>
+						<div class="min-h-8 w-6 text-white"><SvelteIcon /></div>
 						<p class="text-white sm:font-medium">SvelteKit</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="aspect-square font-sans text-2xl font-bold leading-none text-white">98</div>
+						<div class="min-h-8 min-w-8 font-sans text-2xl font-bold leading-none text-white">
+							90+
+						</div>
 						<p class="text-white sm:font-medium">Lighthouse Score</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
