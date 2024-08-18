@@ -129,7 +129,7 @@ onMount(() => {
 						<p class="text-white sm:font-medium">Lighthouse Score</p>
 					</div>
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
-						<div class="min-h-8 w-full text-white"><SanityIcon /></div>
+						<div class="min-h-8 w-20 text-white sm:w-full"><SanityIcon /></div>
 						<p class="text-white sm:font-medium">Sanity CMS</p>
 					</div>
 				</div>
