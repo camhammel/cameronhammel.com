@@ -118,7 +118,7 @@ onMount(() => {
 				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat Here (TODO)</p>
 			</div>
 			<div class="glass-card col-span-2 flex flex-col items-center gap-8 sm:col-span-4">
-				<h5 class="text-center uppercase text-white">This Website</h5>
+				<h5 class="text-center text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
 						<div class="aspect-square w-6 text-white"><SvelteIcon /></div>
