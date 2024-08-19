@@ -10,3 +10,15 @@ Built on a starter, using [SvelteKit](https://kit.svelte.dev/) for the frontend 
 
 ## Check it out at:
 [cameronhammel.dev](https://cameronhammel.dev)
+
+## Development
+Run `pnpm install` to install required dependencies for `packages/app` and `packages/studio`.
+
+You'll also need to connect to a Sanity project, and replace the projectId in the code.
+
+Run `pnpm dev` to start both development servers and the TS codegen from the specified sanity schema.
+
+## Deployment
+You can deploy the Sveltekit App to production by pushing commits to main.
+
+To deploy changes to the Sanity schema, run `pnpm dlx sanity deploy`
