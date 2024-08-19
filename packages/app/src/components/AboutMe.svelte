@@ -92,22 +92,22 @@ onMount(() => {
 				class="glass-card col-span-full flex flex-row flex-wrap items-center justify-center gap-6 sm:col-span-2"
 			>
 				<a
-					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-md"
 					href="https://instagram.com/cameron.hammel"
 					><InstagramIcon />
 				</a>
 				<a
-					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-md"
 					href="https://github.com/camhammel"
 					><GitHubIcon />
 				</a>
 				<a
-					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-md"
 					href="https://linkedin.com/in/cameron-hammel"
 					><LinkedinIcon />
 				</a>
 				<a
-					class="block aspect-square w-8 rounded-md p-1 text-white transition-colors duration-200 hover:bg-white hover:bg-opacity-20"
+					class="block aspect-square w-8 rounded-md p-1 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-md"
 					href="mailto:hello@cameronhammel.dev"
 					target="”_blank”"
 					rel="noopener"
