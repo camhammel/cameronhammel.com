@@ -2,6 +2,7 @@
 // We suggest you to commit this file into source control
 declare global {
     const AboutMe: typeof import("./components/AboutMe.svelte")["default"]
+    const ContributionCalendar: typeof import("./components/ContributionCalendar.svelte")["default"]
     const CustomMark: typeof import("./components/blocks/CustomMark.svelte")["default"]
     const ProjectQuote: typeof import("./components/ProjectQuote.svelte")["default"]
     const ProjectSection: typeof import("./components/ProjectSection.svelte")["default"]

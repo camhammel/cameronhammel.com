@@ -14,6 +14,7 @@ import InstagramIcon from '../svg/instagram.svelte';
 import GitHubIcon from '../svg/github.svelte';
 import EmailIcon from '../svg/email.svelte';
 import LinkedinIcon from '../svg/linkedin.svelte';
+import ContributionCalendar from './ContributionCalendar.svelte';
 
 export let profileImage: SanityAsset | undefined = undefined;
 export let techStackItems: { name: string }[] = [];
@@ -83,13 +84,8 @@ onMount(() => {
 		<div
 			class="xs:grid-cols-3 mx-auto grid max-w-screen-2xl grid-cols-2 gap-2 px-4 sm:grid-cols-6 sm:gap-4"
 		>
-			<div class="glass-card col-span-2 flex items-center justify-center sm:row-span-2">
-				<p class="block aspect-square text-center text-4xl font-medium text-white sm:text-7xl">
-					👋
-				</p>
-			</div>
 			<div
-				class="glass-card col-span-full flex flex-row flex-wrap items-center justify-center gap-6 sm:col-span-2"
+				class="glass-card col-span-full flex flex-row flex-wrap items-center justify-center gap-6 sm:col-span-3"
 			>
 				<a
 					class="block aspect-square w-8 rounded-md p-1 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-md"
@@ -114,10 +110,21 @@ onMount(() => {
 					><EmailIcon />
 				</a>
 			</div>
-			<div class="glass-card col-span-full flex items-center justify-center sm:col-span-2">
-				<p class="text-center font-medium text-white sm:text-lg">GitHub Stat Here (TODO)</p>
+			<div
+				class="glass-card col-span-full flex items-center justify-center overflow-x-clip sm:col-span-3"
+			>
+				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
+					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
+				</p>
+				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
+					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
+				</p>
+				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
+					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
+				</p>
 			</div>
-			<div class="glass-card col-span-2 flex flex-col items-center gap-8 sm:col-span-4">
+			<ContributionCalendar />
+			<div class="glass-card col-span-3 flex flex-col items-center gap-8 sm:col-span-full">
 				<h5 class="text-center text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
 					<div class="flex h-full w-full flex-col items-center justify-start gap-1 sm:w-24">
@@ -135,18 +142,6 @@ onMount(() => {
 						<p class="text-white sm:font-medium">Sanity CMS</p>
 					</div>
 				</div>
-			</div>
-
-			<div class="glass-card col-span-full flex items-center justify-center overflow-x-clip">
-				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
-					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
-				</p>
-				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
-					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
-				</p>
-				<p class="animate-infinite-scroll whitespace-nowrap font-medium text-white sm:text-lg">
-					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
-				</p>
 			</div>
 		</div>
 		<div
