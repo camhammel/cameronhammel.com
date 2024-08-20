@@ -8,7 +8,8 @@ const config = {
             Authorization(env) {
                 return `Bearer ${env.GITHUB_API_READ_TOKEN}`
             }
-        }
+        },
+        interval: 0
     },
     "plugins": {
         "houdini-svelte": {}
