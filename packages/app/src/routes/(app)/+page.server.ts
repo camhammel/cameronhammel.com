@@ -54,16 +54,20 @@ export async function load() {
 	}>(query);
 	projects.sort((a, b) => (dayjs(a.start_date).isBefore(b.start_date) ? 0 : -1));
 
-	const githubResponse = await fetch('https://api.github.com/graphql', {
-		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${GITHUB_API_READ_TOKEN}`,
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({ query: githubQuery, variables })
-	});
-
-	const githubData = await githubResponse.json() as GithubResponse;
+	let githubData = {};
+	try {
+		const githubResponse = await fetch('https://api.github.com/graphql', {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${GITHUB_API_READ_TOKEN}`,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ query: githubQuery, variables })
+		});
+		githubData = await githubResponse.json() as GithubResponse;
+	} catch(error) {
+		console.error(error);
+	}
 
 	if (projects && portfolio) {
 		return {
