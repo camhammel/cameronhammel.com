@@ -517,3 +517,14 @@ export type ProjectQueryResult = Array<{
     author?: string
   }> | null
 }>
+
+// Query TypeMap
+import '@sanity/client'
+declare module '@sanity/client' {
+  interface SanityQueries {
+    '*[_type == "project"]{\n        slug,\n        name,\n        colourset->,\n        start_date,\n\t\tend_date,\n    }': AllProjectQueryResult
+    '*[_type == "portfolio"]{\n\t\tprofile_image,\n\t}': PortfolioQueryResult
+    '*[_type == "techstackitem"]{\n\t\tname,\n\t}': TechStackQueryResult
+    '*[_type == "project" && slug == $slug]{\n        slug,\n        name,\n        colourset->,\n        hero_banner,\n        summary,\n\t\tindustry,\n\t\twebsite,\n\t\tcompany_image,\n        start_date,\n\t\tend_date,\n\t\tjob_title,\n        tech_stack[]->,\n        sections[]->,\n        quotes[]->,\n    }': ProjectQueryResult
+  }
+}

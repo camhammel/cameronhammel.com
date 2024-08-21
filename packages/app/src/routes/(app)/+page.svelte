@@ -27,7 +27,11 @@ afterNavigate((navigation) => {
 </script>
 
 <div class="max-w-screen flex w-full flex-col items-center justify-center">
-	<AboutMe profileImage={data.portfolio?.profile_image} techStackItems={data.techStack} />
+	<AboutMe
+		profileImage={data.portfolio?.profile_image}
+		techStackItems={data.techStack}
+		githubData={data.github}
+	/>
 	<div
 		id="fp-experience"
 		class="flex w-full flex-col items-center justify-center bg-white px-8 py-32 sm:snap-center"

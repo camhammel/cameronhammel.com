@@ -18,11 +18,14 @@ import ContributionCalendar from './ContributionCalendar.svelte';
 
 export let profileImage: SanityAsset | undefined = undefined;
 export let techStackItems: { name: string }[] = [];
+export let githubData: any = {};
 
 $: isLink = $page.url.pathname !== '/';
 
 let mounted = false;
 let isMobile = false;
+
+$: contributionsCalendar = githubData?.data?.user.contributionsCollection.contributionCalendar;
 
 onMount(() => {
 	mounted = true;
@@ -123,7 +126,7 @@ onMount(() => {
 					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
 				</p>
 			</div>
-			<ContributionCalendar />
+			<ContributionCalendar githubData={contributionsCalendar} />
 			<div class="glass-card col-span-3 flex flex-col items-center gap-8 sm:col-span-full">
 				<h5 class="text-center text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
