@@ -1,5 +1,6 @@
 <script lang="ts">
-export let githubData: { totalContributions: number; weeks: any[] };
+import type { ContributionCalendar } from '@octokit/graphql-schema';
+export let githubData: ContributionCalendar;
 
 function getContributionLevel(val: number): number {
 	if (val < 6) return Math.ceil(val / 2);

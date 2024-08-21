@@ -18,6 +18,7 @@
 		"groq": "^3.33.0"
 	},
 	"devDependencies": {
+		"@octokit/graphql-schema": "^15.25.0",
 		"@portabletext/svelte": "^2.1.11",
 		"@portabletext/types": "^2.0.13",
 		"@sanity/types": "^3.50.0",

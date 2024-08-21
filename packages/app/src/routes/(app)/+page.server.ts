@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { GITHUB_API_READ_TOKEN } from '$env/static/private';
 import type { AllProjectQueryResult, PortfolioQueryResult, TechStackQueryResult } from 'studio';
 import { client } from '$lib/sanity/client';
+import type { GithubResponse } from '$lib/types/github';
 import groq from 'groq';
 
 const githubQuery = `
@@ -62,7 +63,7 @@ export async function load() {
 		body: JSON.stringify({ query: githubQuery, variables })
 	});
 
-	const githubData = await githubResponse.json();
+	const githubData = await githubResponse.json() as GithubResponse;
 
 	if (projects && portfolio) {
 		return {

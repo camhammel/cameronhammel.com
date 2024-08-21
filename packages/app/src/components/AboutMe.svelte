@@ -15,10 +15,11 @@ import GitHubIcon from '../svg/github.svelte';
 import EmailIcon from '../svg/email.svelte';
 import LinkedinIcon from '../svg/linkedin.svelte';
 import ContributionCalendar from './ContributionCalendar.svelte';
+import type { GithubResponse } from '$lib/types/github';
 
 export let profileImage: SanityAsset | undefined = undefined;
 export let techStackItems: { name: string }[] = [];
-export let githubData: any = {};
+export let githubData: GithubResponse | undefined;
 
 $: isLink = $page.url.pathname !== '/';
 
@@ -126,7 +127,9 @@ onMount(() => {
 					{' | ' + techStackItems.map(({ name }) => name).join(' | ')}
 				</p>
 			</div>
-			<ContributionCalendar githubData={contributionsCalendar} />
+			{#if contributionsCalendar}
+				<ContributionCalendar githubData={contributionsCalendar} />
+			{/if}
 			<div class="glass-card col-span-3 flex flex-col items-center gap-8 sm:col-span-full">
 				<h5 class="text-center text-white">This Website</h5>
 				<div class="flex w-full flex-col items-center justify-center gap-8 text-center sm:flex-row">
