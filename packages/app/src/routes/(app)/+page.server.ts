@@ -60,7 +60,8 @@ export async function load() {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${GITHUB_API_READ_TOKEN}`,
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
 			},
 			body: JSON.stringify({ query: githubQuery, variables })
 		});
