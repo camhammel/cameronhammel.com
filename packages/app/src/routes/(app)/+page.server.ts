@@ -65,7 +65,7 @@ export async function load() {
 			},
 			body: JSON.stringify({ query: githubQuery, variables })
 		});
-		console.log('githubResponse', githubResponse);
+		console.log(Object.keys(githubResponse));
 		githubData = await githubResponse.json() as GithubResponse;
 	} catch(error) {
 		console.error(error);
