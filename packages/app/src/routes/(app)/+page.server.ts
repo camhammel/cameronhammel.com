@@ -56,6 +56,7 @@ export async function load() {
 
 	let githubData = {};
 	try {
+		console.log('fetching github data', GITHUB_API_READ_TOKEN);
 		const githubResponse = await fetch('https://api.github.com/graphql', {
 			method: 'POST',
 			headers: {
