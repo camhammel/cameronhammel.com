@@ -1,6 +1,7 @@
 <script lang="ts">
 import { onMount } from 'svelte';
 import type { ContributionCalendar } from '@octokit/graphql-schema';
+import { fade } from 'svelte/transition';
 export let githubData: ContributionCalendar;
 
 function getContributionLevel(val: number): number {
@@ -32,9 +33,9 @@ $: hasMounted &&
 	})();
 </script>
 
-<div class="glass-card col-span-full flex items-center justify-center">
-	{#if githubData}
-		<div class="calendar">
+<div class="glass-card col-span-full flex min-h-48 items-center justify-center">
+	{#if githubData && hasMounted}
+		<div class="calendar" in:fade>
 			<ul class="days">
 				{#each ['S', 'M', 'T', 'W', 'T', 'F', 'S'] as day}
 					<li class="text-center text-xs font-bold text-white">{day}</li>
