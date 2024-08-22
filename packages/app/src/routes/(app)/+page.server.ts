@@ -62,12 +62,13 @@ export async function load() {
 			headers: {
 				Authorization: `Bearer ${GITHUB_API_READ_TOKEN}`,
 				'Accept': 'application/json',
-      			'Content-Type': 'application/json'
+      			'Content-Type': 'text/plain'
 			},
 			body: JSON.stringify({ query: githubQuery, variables }),
 		});
 		if (!githubResponse.ok) {
-			console.error(githubResponse.statusText);
+			const msg = await githubResponse.text()
+			console.error(msg);
 		} else {
 			githubData = await githubResponse.json();
 		}
