@@ -11,3 +11,15 @@ setServerClient(serverClient);
 // helpers to the `event.locals` Svelte object, such as a preconfigured
 // `loadQuery` function and `preview` state.
 export const handle = createRequestHandler();
+
+export async function handleFetch({ request, fetch }) {
+	if (request.url.startsWith('https://api.yourapp.com/')) {
+		// clone the original request, but change the cache mode
+		request = new Request(
+			request.url,
+			{ ...request, cache: undefined, credentials: undefined }
+		);
+	}
+
+	return fetch(request);
+}
