@@ -17,7 +17,7 @@ export async function handleFetch({ request, fetch }) {
 		// clone the original request, but change the cache mode
 		request = new Request(
 			request.url,
-			{ ...request, cache: undefined, credentials: undefined }
+			{ ...request.clone(), cache: undefined, credentials: undefined }
 		);
 	}
 

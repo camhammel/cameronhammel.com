@@ -62,7 +62,8 @@ export async function load() {
 			headers: {
 				Authorization: `Bearer ${GITHUB_API_READ_TOKEN}`,
 				'Accept': 'application/json',
-      			'Content-Type': 'text/plain'
+      			'Content-Type': 'text/plain',
+				'User-Agent': 'node.js'
 			},
 			body: JSON.stringify({ query: githubQuery, variables }),
 		});
