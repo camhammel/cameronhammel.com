@@ -1,4 +1,5 @@
 <script lang="ts">
+import { onMount } from 'svelte';
 import type { ContributionCalendar } from '@octokit/graphql-schema';
 export let githubData: ContributionCalendar;
 
@@ -6,9 +7,32 @@ function getContributionLevel(val: number): number {
 	if (val < 6) return Math.ceil(val / 2);
 	return 4;
 }
+
+let innerWidth: number = 0;
+$: weeks = githubData.weeks;
+
+const sizeToWeeks = {
+	'100': -6,
+	'640': -12,
+	'1080': -24,
+	'10000': undefined
+} as const;
+
+let hasMounted = false;
+onMount(() => {
+	hasMounted = true;
+});
+
+$: hasMounted &&
+	(() => {
+		const size = (Object.keys(sizeToWeeks) as Array<keyof typeof sizeToWeeks>).find(
+			(key) => innerWidth < parseInt(key)
+		);
+		if (size) weeks = githubData.weeks.slice(sizeToWeeks[size]);
+	})();
 </script>
 
-<div class="glass-card col-span-full hidden items-center justify-center lg:flex">
+<div class="glass-card col-span-full flex items-center justify-center">
 	{#if githubData}
 		<div class="calendar">
 			<ul class="days">
@@ -17,7 +41,7 @@ function getContributionLevel(val: number): number {
 				{/each}
 			</ul>
 			<ul class="squares">
-				{#each githubData.weeks as week}
+				{#each weeks as week}
 					{#each week.contributionDays as day}
 						<li class="day level-{getContributionLevel(day.contributionCount)}"></li>
 					{/each}
@@ -26,6 +50,7 @@ function getContributionLevel(val: number): number {
 		</div>
 	{/if}
 </div>
+<svelte:window bind:innerWidth={innerWidth} />
 
 <style lang="scss">
 // credit to https://bitsofco.de/github-contribution-graph-css-grid/
