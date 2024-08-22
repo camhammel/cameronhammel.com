@@ -5,7 +5,6 @@ import type { AllProjectQueryResult, PortfolioQueryResult, TechStackQueryResult 
 import { client } from '$lib/sanity/client';
 import type { GithubResponse } from '$lib/types/github';
 import groq from 'groq';
-import axios from 'axios';
 
 const githubQuery = `
 	query($userName:String!) { 
@@ -57,18 +56,18 @@ export async function load() {
 
 	let githubData: GithubResponse | undefined;
 	try {
-		const githubResponse = await axios({
-			url: 'https://api.github.com/graphql',
+		const githubResponse = await fetch('https://api.github.com/graphql',
+			{
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${GITHUB_API_READ_TOKEN}`,
 				'Accept': 'application/json',
       			'Content-Type': 'application/json'
 			},
-			data: { query: githubQuery, variables },
-			withCredentials: 'credentials' in Request.prototype
+			body: JSON.stringify({ query: githubQuery, variables }),
+			credentials: 'credentials' in Request.prototype ? 'include' : undefined
 		});
-		githubData = await githubResponse.data;
+		githubData = await githubResponse.json();
 	} catch(error) {
 		console.error(error);
 	}
