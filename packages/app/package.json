@@ -15,7 +15,8 @@
 		"@sanity/svelte-loader": "^1.11.1",
 		"daisyui": "^4.12.10",
 		"dayjs": "^1.11.12",
-		"groq": "^3.33.0"
+		"groq": "^3.33.0",
+		"remeda": "^2.11.0"
 	},
 	"devDependencies": {
 		"@octokit/graphql-schema": "^15.25.0",

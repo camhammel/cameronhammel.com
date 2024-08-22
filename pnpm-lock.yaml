@@ -42,6 +42,9 @@ importers:
       groq:
         specifier: ^3.33.0
         version: 3.52.4
+      remeda:
+        specifier: ^2.11.0
+        version: 2.11.0
     devDependencies:
       '@octokit/graphql-schema':
         specifier: ^15.25.0
@@ -4744,6 +4747,9 @@ packages:
     resolution: {integrity: sha512-dQUtn90WanSNl+7mQKcXAgZxvUe7Z0SqXlgzv0za4LwiUhyzBC58yQO3liFoUgu8GiJVInAhJjkj1N0EtQ5nkQ==}
     hasBin: true
 
+  remeda@2.11.0:
+    resolution: {integrity: sha512-rQO+zcuNvnTcB2vBctblBARZakY0+wMNtrFGqU1+h4jm5p2APcDKQxUZG2CmMPkSQxa2nauU55GBVS/3Fo83fA==}
+
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -5320,6 +5326,10 @@ packages:
 
   type-fest@4.10.1:
     resolution: {integrity: sha512-7ZnJYTp6uc04uYRISWtiX3DSKB/fxNQT0B5o1OUeCqiQiwF+JC9+rJiZIDrPrNCLLuTqyQmh4VdQqh/ZOkv9MQ==}
+    engines: {node: '>=16'}
+
+  type-fest@4.25.0:
+    resolution: {integrity: sha512-bRkIGlXsnGBRBQRAY56UXBm//9qH4bmJfFvq83gSz41N282df+fjy8ofcEgc1sM8geNt5cl6mC2g9Fht1cs8Aw==}
     engines: {node: '>=16'}
 
   type-fest@4.9.0:
@@ -10852,6 +10862,10 @@ snapshots:
     dependencies:
       jsesc: 0.5.0
 
+  remeda@2.11.0:
+    dependencies:
+      type-fest: 4.25.0
+
   require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
@@ -11648,6 +11662,8 @@ snapshots:
   type-fest@0.8.1: {}
 
   type-fest@4.10.1: {}
+
+  type-fest@4.25.0: {}
 
   type-fest@4.9.0: {}
 

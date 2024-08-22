@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { debounce } from 'remeda';
 import type { ContributionCalendar } from '@octokit/graphql-schema';
 import { fade } from 'svelte/transition';
 export let githubData: ContributionCalendar;
@@ -9,7 +10,7 @@ function getContributionLevel(val: number): number {
 	return 4;
 }
 
-let innerWidth: number = 0;
+let innerWidth = 0;
 $: weeks = githubData.weeks;
 
 const sizeToWeeks = {
@@ -24,13 +25,16 @@ onMount(() => {
 	hasMounted = true;
 });
 
-$: hasMounted &&
-	(() => {
-		const size = (Object.keys(sizeToWeeks) as Array<keyof typeof sizeToWeeks>).find(
-			(key) => innerWidth < parseInt(key)
-		);
-		if (size) weeks = githubData.weeks.slice(sizeToWeeks[size]);
-	})();
+function handleResize(width: number) {
+	const size = (Object.keys(sizeToWeeks) as Array<keyof typeof sizeToWeeks>).find(
+		(key) => width < parseInt(key)
+	);
+	if (size) weeks = githubData.weeks.slice(sizeToWeeks[size]);
+}
+
+const handleResizeDebounced = debounce(handleResize, { waitMs: 10 });
+
+$: hasMounted && handleResizeDebounced.call(innerWidth);
 </script>
 
 <div class="glass-card col-span-full flex min-h-48 items-center justify-center">
