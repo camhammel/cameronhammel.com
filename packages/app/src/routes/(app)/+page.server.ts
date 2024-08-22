@@ -65,9 +65,9 @@ export async function load() {
 				'Accept': 'application/json',
       			'Content-Type': 'application/json'
 			},
-			data: { query: githubQuery, variables }
+			data: { query: githubQuery, variables },
+			withCredentials: 'credentials' in Request.prototype
 		});
-		console.log(Object.keys(githubResponse));
 		githubData = await githubResponse.data;
 	} catch(error) {
 		console.error(error);
