@@ -57,14 +57,16 @@ onMount(() => {
 	<div
 		class="bg-gradient-ellipse-tl from-primary-lighter to-primary relative mx-4 mb-4 flex flex-1 flex-col justify-evenly gap-4 rounded-3xl from-20% to-80% px-4 py-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
 	>
-		<div class="flex flex-col-reverse items-center sm:flex-row sm:justify-center">
+		<div class="flex flex-col-reverse items-center sm:mx-4 sm:flex-row sm:justify-center">
 			<div class="my-1 flex flex-col items-center sm:items-start">
 				<h1
-					class="text-center text-[clamp(24px,10svh,48px)] leading-none tracking-normal text-white [text-transform:none;] sm:text-start sm:text-8xl"
+					class="text-center text-[clamp(24px,10svh,48px)] leading-none tracking-normal text-white [text-transform:none;] sm:text-start sm:text-7xl md:text-8xl"
 				>
 					Hi, I'm<br />Cameron.
 				</h1>
-				<p class="mt-4 max-w-[80%] font-medium text-white sm:max-w-xl sm:text-xl">
+				<p
+					class="mt-4 max-w-[80%] text-center font-medium text-white sm:max-w-xl sm:text-left sm:text-lg md:text-xl"
+				>
 					I'm a software engineer based in Toronto 🇨🇦
 					<br /> I build cutting edge web and mobile applications using modern frameworks such as
 					<b>React-Native</b>, <b>Vue</b>, and <b>SvelteKit</b>.
