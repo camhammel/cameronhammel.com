@@ -50,11 +50,11 @@ const config = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--color-primary)',
-        'primary-light': 'var(--color-primary-light)',
-        'primary-lighter': 'var(--color-primary-lighter)',
-        'primary-dark': 'var(--color-primary-dark)',
-        white: '#f8fafc'
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        'primary-light': 'rgb(var(--color-primary-light) / <alpha-value>)',
+        'primary-lighter': 'rgb(var(--color-primary-lighter) / <alpha-value>)',
+        'primary-dark': 'rgb(var(--color-primary-dark) / <alpha-value>)',
+        white: 'rgb(var(--color-white) / <alpha-value>)'
       },
       animation: {
         'infinite-scroll': 'infinite-scroll 45s linear infinite',

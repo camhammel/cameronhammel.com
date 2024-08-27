@@ -5,12 +5,13 @@ import IntersectionObserver from 'svelte-intersection-observer';
 
 import ProjectTitle from '../../../../components/ProjectTitle.svelte';
 import ProjectSection from '../../../../components/ProjectSection.svelte';
-import ProjectQuote from '../../../../components/ProjectQuote.svelte';
+import ProjectQuote from '../../../../components/Quote.svelte';
 
 import { urlFor } from '$lib/sanity/client';
 import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
 import { cubicOut } from 'svelte/easing';
 import ProjectSidebar from '../../../../components/ProjectSidebar.svelte';
+import type { RgbaColor } from 'studio';
 
 let ready = false;
 
@@ -20,19 +21,32 @@ onMount(() => {
 
 export let data;
 $: ({ project } = data);
-$: colourset = project?.colourset || {
-	main: { hex: '#000' },
-	light: { hex: '#000' },
-	lighter: { hex: '#000' },
-	dark: { hex: '#000' }
-};
+
+const defaultBlack = { r: 0, g: 0, b: 0 };
+
+function transformColourset(
+	colourset?: Record<
+		'main' | 'light' | 'lighter' | 'dark',
+		{ rgb?: { r?: number; g?: number; b?: number } }
+	>
+): Record<string, { rgb: string }> {
+	const transformRgb = (rgb?: Omit<RgbaColor, '_type'>) => `${rgb?.r} ${rgb?.g} ${rgb?.b}`;
+
+	return {
+		main: { rgb: transformRgb(colourset?.main.rgb || defaultBlack) },
+		light: { rgb: transformRgb(colourset?.light.rgb || defaultBlack) },
+		lighter: { rgb: transformRgb(colourset?.lighter.rgb || defaultBlack) },
+		dark: { rgb: transformRgb(colourset?.dark.rgb || defaultBlack) }
+	};
+}
+
+// Reactive statement to transform the colourset
+$: colourset = transformColourset(project?.colourset);
 
 let sectionNodes: HTMLElement[] = [];
-let quotesNode: HTMLElement;
 let techStackNode: HTMLElement;
 
 let sectionsIntersecting = [false];
-let quotesIntersecting = false;
 let techStackIntersecting = false;
 
 let projectIntersectionElements: Record<
@@ -59,22 +73,15 @@ $: projectIntersectionElements = Object.assign(
 				};
 				return acc;
 			}, {})
-	),
-	{
-		'project-quotes': {
-			intersecting: quotesIntersecting,
-			title: 'Quotes',
-			show: !!project?.quotes?.length
-		}
-	}
+	)
 );
 </script>
 
 <div
 	class="project-details relative flex flex-col bg-white"
-	style="--color-primary: {colourset.main.hex}; --color-primary-light: {colourset.light
-		.hex}; --color-primary-lighter: {colourset.lighter.hex}; --color-primary-dark: {colourset.dark
-		.hex};"
+	style="--color-primary: {colourset.main.rgb}; --color-primary-light: {colourset.light
+		.rgb}; --color-primary-lighter: {colourset.lighter.rgb}; --color-primary-dark: {colourset.dark
+		.rgb};"
 >
 	{#if project}
 		<ProjectTitle project={project} />
@@ -120,25 +127,6 @@ $: projectIntersectionElements = Object.assign(
 										</IntersectionObserver>
 									{/each}
 								{/if}
-								<section>
-									{#if project.quotes?.length}
-										<IntersectionObserver
-											element={quotesNode}
-											bind:intersecting={quotesIntersecting}
-											threshold={0.7}
-										>
-											<div
-												id="project-quotes"
-												class="carousel carousel-center rounded-box flex-wrap justify-center gap-8 sm:flex-nowrap"
-												bind:this={quotesNode}
-											>
-												{#each project.quotes as quote}
-													<ProjectQuote quote={quote} />
-												{/each}
-											</div>
-										</IntersectionObserver>
-									{/if}
-								</section>
 							</div>
 							<ProjectSidebar
 								project={project}

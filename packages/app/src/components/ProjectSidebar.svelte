@@ -56,12 +56,12 @@ $: intersectionElements = Object.entries(
 						<div class="flex h-full flex-row items-center gap-4">
 							<div
 								class="h-5 w-[2px] bg-slate-200 transition-colors duration-300"
-								style="background-color: {intersecting ? 'var(--color-primary)' : ''}"
+								style="background-color: {intersecting ? 'rgb(var(--color-primary))' : ''}"
 							/>
 							<a
 								href={`#${id}`}
 								class="link text-sm text-slate-400 transition-colors duration-300"
-								style="color: {intersecting ? 'var(--color-primary)' : ''}">{title}</a
+								style="color: {intersecting ? 'rgb(var(--color-primary))' : ''}">{title}</a
 							>
 						</div>
 					{/if}

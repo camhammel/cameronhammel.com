@@ -1,5 +1,7 @@
 <script lang="ts">
 import { afterNavigate, beforeNavigate } from '$app/navigation';
+import type { Quote } from '$lib/types/project';
+import Testimonial from '../../components/Quote.svelte';
 
 import ProjectTitle from '../../components/ProjectTitle.svelte';
 
@@ -24,6 +26,9 @@ afterNavigate((navigation) => {
 		setupTransitions(navigation.from.params.slug);
 	}
 });
+
+let quotes: Quote[] = [];
+$: quotes = (data.projects?.flatMap((project) => project.quotes) ?? []).filter(Boolean) as Quote[];
 </script>
 
 <div class="max-w-screen flex w-full flex-col items-center justify-center">
@@ -44,6 +49,25 @@ afterNavigate((navigation) => {
 				{#each data.projects as project, index}
 					<li class="mx-auto h-full w-full max-w-7xl">
 						<ProjectTitle project={project} index={index} />
+					</li>
+				{/each}
+			</ul>
+		{:else}
+			<p>No projects found.</p>
+		{/if}
+	</div>
+	<div
+		id="fp-quotes"
+		class="flex w-full flex-col items-center justify-center bg-white px-8 py-32 sm:snap-center"
+	>
+		{#if data.projects?.length}
+			<h2 class="overflow-x-hidden text-center text-[clamp(1.5rem,4vw,2rem)] sm:text-left">
+				Testimonials
+			</h2>
+			<ul class="grid w-full max-w-7xl grid-cols-1 justify-evenly gap-4 sm:grid-cols-2">
+				{#each quotes as quote}
+					<li class="mx-auto h-full w-full">
+						<Testimonial quote={quote} />
 					</li>
 				{/each}
 			</ul>

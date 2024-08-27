@@ -2,12 +2,12 @@
     "globals": {
         "AboutMe": true,
         "ContributionCalendar": true,
-        "ProjectQuote": true,
         "ProjectSection": true,
         "ProjectSidebar": true,
         "ProjectTechStack": true,
         "ProjectTitle": true,
         "CustomMark": true,
+        "Quote": true,
         "SvelteSeo": true
     }
 }

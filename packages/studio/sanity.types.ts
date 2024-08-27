@@ -360,7 +360,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ../app/src/routes/(app)/+page.server.ts
 // Variable: allProjectQuery
-// Query: *[_type == "project"]{        slug,        name,        colourset->,        start_date,		end_date,    }
+// Query: *[_type == "project"]{        slug,        name,        colourset->,        start_date,		end_date,		quotes[]->,    }
 export type AllProjectQueryResult = Array<{
   slug: string
   name: string
@@ -377,6 +377,32 @@ export type AllProjectQueryResult = Array<{
   }
   start_date: string
   end_date: string | null
+  quotes: Array<{
+    _id: string
+    _type: 'quote'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    quote?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    author?: string
+  }> | null
 }>
 // Variable: portfolioQuery
 // Query: *[_type == "portfolio"]{		profile_image,	}
@@ -522,7 +548,7 @@ export type ProjectQueryResult = Array<{
 import '@sanity/client'
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "project"]{\n        slug,\n        name,\n        colourset->,\n        start_date,\n\t\tend_date,\n    }': AllProjectQueryResult
+    '*[_type == "project"]{\n        slug,\n        name,\n        colourset->,\n        start_date,\n\t\tend_date,\n\t\tquotes[]->,\n    }': AllProjectQueryResult
     '*[_type == "portfolio"]{\n\t\tprofile_image,\n\t}': PortfolioQueryResult
     '*[_type == "techstackitem"]{\n\t\tname,\n\t}': TechStackQueryResult
     '*[_type == "project" && slug == $slug]{\n        slug,\n        name,\n        colourset->,\n        hero_banner,\n        summary,\n\t\tindustry,\n\t\twebsite,\n\t\tcompany_image,\n        start_date,\n\t\tend_date,\n\t\tjob_title,\n        tech_stack[]->,\n        sections[]->,\n        quotes[]->,\n    }': ProjectQueryResult

@@ -36,6 +36,7 @@ export async function load() {
         colourset->,
         start_date,
 		end_date,
+		quotes[]->,
     }`;
 	const portfolioQuery = groq`*[_type == "portfolio"]{
 		profile_image,
