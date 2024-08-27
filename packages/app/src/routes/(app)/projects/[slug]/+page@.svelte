@@ -88,7 +88,7 @@ $: projectIntersectionElements = Object.assign(
 		{#if ready}
 			<div
 				class="relative bottom-12 z-10 -mb-12 flex-1 gap-4 rounded-3xl bg-white p-4"
-				transition:fly={{ duration: 500, delay: 200, y: 100, easing: cubicOut, opacity: 1 }}
+				transition:fly={{ duration: 750, delay: 200, y: 200, easing: cubicOut, opacity: 1 }}
 			>
 				<div class="col-span-3 mx-auto max-w-screen-2xl">
 					{#if project.hero_banner && ready}
@@ -97,6 +97,7 @@ $: projectIntersectionElements = Object.assign(
 								src={urlFor(project.hero_banner)?.auto('format').url()}
 								class="rounded-2xl"
 								alt="Hero Banner"
+								width="100%"
 							/>
 						</div>
 					{/if}

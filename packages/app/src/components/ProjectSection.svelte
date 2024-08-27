@@ -57,6 +57,7 @@ $: flyOptions = {
 							class="max-w-[70%] rounded-md"
 							src={urlFor(section.image)?.auto('format').url()}
 							alt="Project Section"
+							width="70%"
 						/>
 					</div>
 				{/if}
