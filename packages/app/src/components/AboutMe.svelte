@@ -16,6 +16,7 @@ import EmailIcon from '../svg/email.svelte';
 import LinkedinIcon from '../svg/linkedin.svelte';
 import ContributionCalendar from './ContributionCalendar.svelte';
 import type { GithubResponse } from '$lib/types/github';
+import { spring } from 'svelte/motion';
 
 export let profileImage: SanityAsset | undefined = undefined;
 export let techStackItems: { name: string }[] = [];
@@ -32,6 +33,14 @@ onMount(() => {
 	mounted = true;
 	isMobile = (document.querySelector('html')?.clientWidth || 0) < 640;
 });
+
+let coords = spring(
+	{ x: 75, y: 25 },
+	{
+		stiffness: 0.05,
+		damping: 0.3
+	}
+);
 </script>
 
 <div id="fp-about" class="flex min-h-svh w-full flex-col bg-white sm:snap-start">
@@ -55,7 +64,15 @@ onMount(() => {
 		{/if}
 	</div>
 	<div
-		class="bg-gradient-ellipse-tl from-primary-lighter to-primary relative mx-4 mb-4 flex flex-1 flex-col justify-evenly gap-4 rounded-3xl from-20% to-80% px-4 py-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
+		class="from-primary-lighter to-primary bg-gradient-[circle_at_var(--gradient-position)] relative mx-4 mb-4 flex flex-1 flex-col justify-evenly gap-4 rounded-3xl from-15% to-100% px-4 py-8 sm:mx-6 sm:mb-6 sm:gap-8 sm:pt-8"
+		on:mousemove={(e) => {
+			coords.set({ x: Math.round(e.clientX / window.innerWidth * 100), y: Math.round(e.clientY / window.innerHeight * 100) });
+		}}
+		on:mouseleave={(e) => {
+			coords.set({ x: 80, y: 25 });
+		}}
+		role="presentation"
+		style="--gradient-position: {$coords.x}% {$coords.y}%"
 	>
 		<div class="flex flex-col-reverse items-center sm:mx-4 sm:flex-row sm:justify-center">
 			<div class="my-1 flex flex-col items-center sm:items-start">
