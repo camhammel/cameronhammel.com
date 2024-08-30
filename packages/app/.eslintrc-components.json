@@ -6,8 +6,8 @@
         "ProjectSidebar": true,
         "ProjectTechStack": true,
         "ProjectTitle": true,
-        "CustomMark": true,
         "Quote": true,
+        "CustomMark": true,
         "SvelteSeo": true
     }
 }

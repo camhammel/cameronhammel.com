@@ -16,7 +16,7 @@ $: intersectionElements = Object.entries(
 	<div class="flex h-fit flex-col gap-4 rounded-md bg-[#fff] p-4">
 		{#if project.company_image}
 			<img
-				src={urlFor(project.company_image)?.auto('format').url()}
+				src={urlFor(project.company_image)?.width(768).auto('format').url()}
 				class="rounded-md bg-[#fff] object-contain px-1"
 				alt="Company Logo"
 				transition:fade
