@@ -43,7 +43,7 @@ $: intersectionElements = Object.entries(
 		{#if project.website}
 			<div>
 				<h5>Website</h5>
-				<a href={project.website} class="link text-sm">{project.website}</a>
+				<a href={project.website} class="link break-all text-sm">{project.website}</a>
 			</div>
 		{/if}
 	</div>

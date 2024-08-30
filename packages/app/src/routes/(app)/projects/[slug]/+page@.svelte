@@ -5,7 +5,6 @@ import IntersectionObserver from 'svelte-intersection-observer';
 
 import ProjectTitle from '../../../../components/ProjectTitle.svelte';
 import ProjectSection from '../../../../components/ProjectSection.svelte';
-import ProjectQuote from '../../../../components/Quote.svelte';
 
 import { urlFor } from '$lib/sanity/client';
 import ProjectTechStack from '../../../../components/ProjectTechStack.svelte';
@@ -78,7 +77,7 @@ $: projectIntersectionElements = Object.assign(
 </script>
 
 <div
-	class="project-details relative flex flex-col bg-white"
+	class="project-details relative flex max-w-full flex-col overflow-hidden bg-white"
 	style="--color-primary: {colourset.main.rgb}; --color-primary-light: {colourset.light
 		.rgb}; --color-primary-lighter: {colourset.lighter.rgb}; --color-primary-dark: {colourset.dark
 		.rgb};"
@@ -91,7 +90,7 @@ $: projectIntersectionElements = Object.assign(
 				transition:fly={{ duration: 750, delay: 200, y: 200, easing: cubicOut, opacity: 1 }}
 			>
 				<div class="col-span-3 mx-auto max-w-screen-2xl">
-					{#if project.hero_banner && ready}
+					{#if project.hero_banner}
 						<div class="flex flex-row justify-center">
 							<img
 								src={urlFor(project.hero_banner)?.auto('format').url()}
