@@ -78,10 +78,13 @@ const isActivePage = $page.url.pathname === `/projects/${project.slug}`;
 				</div>
 			</div>
 		{:else}
-			<div class="flex w-full flex-grow flex-col items-center justify-center">
+			<div
+				class="flex w-full flex-grow flex-col items-center justify-center"
+				style="--color-hover: {project.colourset.main.hex};"
+			>
 				{#if ready}
 					<a
-						class="bg-primary project-title-component projects-list-item group flex w-full flex-grow origin-top flex-row items-center rounded-3xl bg-black px-4 py-1 transition-all duration-300 hover:-translate-y-2 hover:shadow-md sm:px-8 sm:py-2"
+						class="bg-primary project-title-component projects-list-item group flex w-full flex-grow origin-top flex-row items-center rounded-3xl px-4 py-1 transition-all duration-300 hover:-translate-y-2 hover:bg-[--color-hover] hover:shadow-md sm:px-8 sm:py-2"
 						href={`/projects/${project.slug}`}
 						in:scale={{
 							delay: isFirstPage ? 50 + 100 * index : 0,
