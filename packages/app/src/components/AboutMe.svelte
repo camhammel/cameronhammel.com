@@ -38,7 +38,7 @@ let coords = spring(
 	{ x: 75, y: 25 },
 	{
 		stiffness: 0.05,
-		damping: 0.3
+		damping: 0.75
 	}
 );
 </script>
