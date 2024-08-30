@@ -80,7 +80,7 @@ $: quotes = (data.projects?.flatMap((project) => project.quotes) ?? []).filter(B
 <svelte:head>
 	<style>
 	html {
-		overflow-y: scroll;
+		overflow-y: overlay;
 		scroll-snap-type: y mandatory;
 	}
 	</style>
