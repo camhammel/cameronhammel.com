@@ -43,7 +43,7 @@ let coords = spring(
 );
 </script>
 
-<div id="fp-about" class="flex min-h-svh w-full flex-col bg-white sm:snap-start">
+<div id="fp-about" class="flex min-h-svh w-full flex-col bg-white">
 	<div class="flex flex-row items-center justify-center overflow-x-hidden bg-white sm:justify-end">
 		{#if mounted}
 			<div

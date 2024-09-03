@@ -39,7 +39,7 @@ $: quotes = (data.projects?.flatMap((project) => project.quotes) ?? []).filter(B
 	/>
 	<div
 		id="fp-experience"
-		class="flex w-full flex-col items-center justify-center bg-white px-8 py-32 sm:snap-center"
+		class="flex w-full flex-col items-center justify-center bg-white px-8 py-32"
 	>
 		{#if data.projects?.length}
 			<h2 class="overflow-x-hidden text-center text-[clamp(1.5rem,4vw,2rem)] sm:text-left">
@@ -56,10 +56,7 @@ $: quotes = (data.projects?.flatMap((project) => project.quotes) ?? []).filter(B
 			<p>No projects found.</p>
 		{/if}
 	</div>
-	<div
-		id="fp-quotes"
-		class="flex w-full flex-col items-center justify-center bg-white px-8 py-32 sm:snap-center"
-	>
+	<div id="fp-quotes" class="flex w-full flex-col items-center justify-center bg-white px-8 py-32">
 		{#if data.projects?.length}
 			<h2 class="overflow-x-hidden text-center text-[clamp(1.5rem,4vw,2rem)] sm:text-left">
 				Testimonials
@@ -81,7 +78,6 @@ $: quotes = (data.projects?.flatMap((project) => project.quotes) ?? []).filter(B
 	<style>
 	html {
 		overflow-y: overlay;
-		scroll-snap-type: y mandatory;
 	}
 	</style>
 </svelte:head>
